@@ -126,4 +126,4 @@ Notes:
 - For persistent data, create a free hosted MySQL database (e.g. Aiven, TiDB Cloud) and add `DB_HOST`, `DB_PORT`, `DB_USER`, `DB_PASSWORD`, `DB_NAME` in the Render dashboard.
 - Free services sleep after ~15 min idle; the first visit afterwards takes ~30–60 s to wake up. Open the link a minute before the client demo.
 
-Production build locally: `npm run build:prod && npm start` → `http://localhost:5000`.
+Production build locally: `npm run build && npm start` → `http://localhost:5000`.

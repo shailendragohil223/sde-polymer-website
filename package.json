@@ -8,9 +8,9 @@
     "server:dev": "cd backend && npm run dev",
     "client": "cd frontend && npm run dev",
     "install:all": "npm install && cd backend && npm install && cd ../frontend && npm install",
-    "build": "cd frontend && npm run build",
+    "build": "npm ci --prefix backend --omit=dev && npm ci --prefix frontend && npm run build --prefix frontend",
     "start": "cd backend && npm run start",
-    "build:prod": "npm ci --prefix backend --omit=dev && npm ci --prefix frontend && npm run build --prefix frontend"
+    "build:prod": "npm run build"
   },
   "devDependencies": {
     "concurrently": "^9.1.2"
