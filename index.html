@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shree Dipeshwari Engineering | Complete Polymer Solution</title>
+<meta name="description" content="Manufacturer of Rubber Moulded Parts, O-Rings, Oil Seals, PTFE, PU, Nylon, Silicone & Custom Engineering Components. Vadodara, Gujarat.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Barlow:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy-deep: #071a30;
+    --navy: #0d2b4e;
+    --navy-mid: #14396f;
+    --steel: #5b6b7d;
+    --teal: #0f8b8d;
+    --teal-bright: #14b3ae;
+    --paper: #f3f5f7;
+    --paper-dim: #e6eaee;
+    --orange: #e8622c;
+    --orange-dark: #c94e1e;
+    --white: #ffffff;
+    --line: rgba(255,255,255,0.14);
+    --line-dark: rgba(7,26,48,0.12);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Barlow', sans-serif;
+    background:var(--paper);
+    color:var(--navy-deep);
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{
+    font-family:'Oswald', sans-serif;
+    text-transform:uppercase;
+    letter-spacing:0.02em;
+    line-height:1.12;
+  }
+  .mono{font-family:'JetBrains Mono', monospace;}
+  a{color:inherit; text-decoration:none;}
+  img{max-width:100%; display:block;}
+  .wrap{max-width:1180px; margin:0 auto; padding:0 24px;}
+  .eyebrow{
+    font-family:'JetBrains Mono', monospace;
+    font-size:12.5px;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--teal);
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:16px;
+    font-weight:500;
+  }
+  .eyebrow::before{
+    content:"";
+    width:26px; height:2px;
+    background:var(--orange);
+    display:inline-block;
+  }
+  section{padding:88px 0;}
+  @media (max-width:720px){ section{padding:56px 0;} }
+
+  /* ===== gear signature element ===== */
+  .gear-mark{
+    width:20px; height:20px;
+    display:inline-block;
+  }
+  .gear-mark svg{width:100%; height:100%;}
+
+  /* ===== header ===== */
+  header{
+    position:sticky; top:0; z-index:100;
+    background:rgba(7,26,48,0.94);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:16px 24px;
+    max-width:1180px; margin:0 auto;
+  }
+  .brand{display:flex; align-items:center; gap:12px; color:var(--white);}
+  .brand-mark{width:38px; height:38px; flex-shrink:0;}
+  .brand-text{line-height:1.15;}
+  .brand-text .name{font-family:'Oswald',sans-serif; font-size:16.5px; letter-spacing:0.03em; font-weight:600;}
+  .brand-text .tag{font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:0.14em; color:var(--teal-bright); text-transform:uppercase;}
+  nav.links{display:flex; gap:28px; align-items:center;}
+  nav.links a{
+    color:rgba(255,255,255,0.72);
+    font-size:14px; font-weight:500;
+    letter-spacing:0.01em;
+    transition:color .2s;
+  }
+  nav.links a:hover{color:var(--white);}
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:'Barlow', sans-serif;
+    font-weight:600;
+    font-size:14px;
+    letter-spacing:0.02em;
+    padding:12px 22px;
+    border-radius:2px;
+    cursor:pointer;
+    border:1px solid transparent;
+    transition:transform .15s ease, box-shadow .15s ease, background .15s ease;
+    white-space:nowrap;
+  }
+  .btn-orange{background:var(--orange); color:var(--white);}
+  .btn-orange:hover{background:var(--orange-dark); transform:translateY(-1px); box-shadow:0 6px 16px rgba(232,98,44,0.35);}
+  .btn-ghost{background:transparent; border-color:rgba(255,255,255,0.3); color:var(--white);}
+  .btn-ghost:hover{border-color:var(--white); background:rgba(255,255,255,0.06);}
+  .btn-teal{background:var(--teal); color:var(--white);}
+  .btn-teal:hover{background:var(--teal-bright); transform:translateY(-1px);}
+  .btn-outline-navy{background:transparent; border-color:var(--navy-mid); color:var(--navy);}
+  .btn-outline-navy:hover{background:var(--navy); color:var(--white);}
+  .header-cta{display:flex; gap:10px; align-items:center;}
+  .menu-toggle{display:none; background:none; border:none; color:var(--white); font-size:24px; cursor:pointer;}
+
+  /* ===== hero ===== */
+  .hero{
+    position:relative;
+    background:
+      radial-gradient(1100px 500px at 82% -10%, rgba(15,139,141,0.35), transparent 60%),
+      linear-gradient(180deg, var(--navy-deep) 0%, var(--navy) 60%, var(--navy-mid) 100%);
+    color:var(--white);
+    overflow:hidden;
+    padding:100px 0 70px;
+  }
+  .hero::after{
+    content:"";
+    position:absolute; inset:0;
+    background-image: repeating-linear-gradient(115deg, rgba(255,255,255,0.035) 0px, rgba(255,255,255,0.035) 1px, transparent 1px, transparent 64px);
+    pointer-events:none;
+  }
+  .hero-inner{
+    position:relative; z-index:2;
+    display:grid; grid-template-columns:1.15fr 0.85fr; gap:48px; align-items:center;
+  }
+  @media (max-width:900px){ .hero-inner{grid-template-columns:1fr;} }
+  .hero h1{
+    font-size:clamp(34px, 4.6vw, 58px);
+    font-weight:700;
+    margin-bottom:22px;
+    color:var(--white);
+  }
+  .hero h1 span{color:var(--teal-bright);}
+  .hero p.lead{
+    font-size:17.5px;
+    color:rgba(255,255,255,0.78);
+    max-width:540px;
+    margin-bottom:34px;
+    font-weight:400;
+  }
+  .hero-actions{display:flex; flex-wrap:wrap; gap:14px; margin-bottom:38px;}
+  .hero-strip{
+    display:flex; flex-wrap:wrap; gap:0;
+    border-top:1px solid var(--line);
+    padding-top:24px;
+  }
+  .hero-strip .stat{
+    padding-right:34px; margin-right:34px;
+    border-right:1px solid var(--line);
+  }
+  .hero-strip .stat:last-child{border-right:none;}
+  .hero-strip .stat .num{font-family:'Oswald',sans-serif; font-size:26px; font-weight:600; color:var(--teal-bright);}
+  .hero-strip .stat .lbl{font-family:'JetBrains Mono',monospace; font-size:10.5px; letter-spacing:0.08em; color:rgba(255,255,255,0.55); text-transform:uppercase;}
+
+  /* signature: rotating gear cluster diagram */
+  .gear-cluster{
+    position:relative;
+    aspect-ratio:1/1;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .gear-cluster svg{width:100%; height:100%; max-width:420px;}
+  .gear-big{ animation: spin-slow 40s linear infinite; transform-origin:center; }
+  .gear-small{ animation: spin-slow-rev 26s linear infinite; transform-origin:center; }
+  @keyframes spin-slow{ from{transform:rotate(0deg);} to{transform:rotate(360deg);} }
+  @keyframes spin-slow-rev{ from{transform:rotate(0deg);} to{transform:rotate(-360deg);} }
+  @media (prefers-reduced-motion: reduce){
+    .gear-big, .gear-small{animation:none;}
+  }
+
+  /* ===== material spec ticker (signature strip) ===== */
+  .spec-ticker{
+    background:var(--navy-deep);
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    overflow:hidden;
+    padding:14px 0;
+  }
+  .spec-ticker .track{
+    display:flex; gap:48px; white-space:nowrap;
+    animation:ticker 32s linear infinite;
+    width:max-content;
+  }
+  @media (prefers-reduced-motion: reduce){ .spec-ticker .track{animation:none;} }
+  @keyframes ticker{ from{transform:translateX(0);} to{transform:translateX(-50%);} }
+  .spec-ticker span{
+    font-family:'JetBrains Mono',monospace;
+    font-size:12px;
+    letter-spacing:0.06em;
+    color:rgba(255,255,255,0.55);
+    text-transform:uppercase;
+  }
+  .spec-ticker span b{color:var(--teal-bright); font-weight:500;}
+
+  /* ===== about ===== */
+  .about-grid{
+    display:grid; grid-template-columns:0.9fr 1.1fr; gap:56px; align-items:start;
+  }
+  @media (max-width:860px){ .about-grid{grid-template-columns:1fr;} }
+  .about-grid h2{font-size:clamp(28px,3.4vw,40px); color:var(--navy-deep); margin-bottom:18px;}
+  .about-grid p{color:var(--steel); font-size:16px; max-width:480px;}
+  .feature-list{
+    display:grid; grid-template-columns:1fr 1fr; gap:1px;
+    background:var(--line-dark);
+    border:1px solid var(--line-dark);
+  }
+  .feature-list .item{
+    background:var(--white);
+    padding:22px 22px;
+  }
+  .feature-list .item .ic{color:var(--teal); font-size:13px; margin-bottom:8px; font-family:'JetBrains Mono',monospace; letter-spacing:0.08em;}
+  .feature-list .item h4{font-size:15px; color:var(--navy-deep); letter-spacing:0.01em;}
+
+  /* ===== product categories ===== */
+  .section-alt{background:var(--navy-deep); color:var(--white);}
+  .section-alt .eyebrow{color:var(--teal-bright);}
+  .cat-head{display:flex; align-items:flex-end; justify-content:space-between; flex-wrap:wrap; gap:20px; margin-bottom:44px;}
+  .cat-head h2{font-size:clamp(28px,3.4vw,40px); color:var(--white);}
+  .cat-head p{color:rgba(255,255,255,0.6); max-width:380px; font-size:15px;}
+  .cat-grid{
+    display:grid; grid-template-columns:repeat(4, 1fr); gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+  }
+  @media (max-width:900px){ .cat-grid{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:520px){ .cat-grid{grid-template-columns:1fr;} }
+  .cat-card{
+    background:var(--navy);
+    padding:28px 24px;
+    transition:background .2s ease;
+    position:relative;
+  }
+  .cat-card:hover{background:var(--navy-mid);}
+  .cat-card .num{font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--teal-bright); letter-spacing:0.1em;}
+  .cat-card h4{font-size:16.5px; color:var(--white); margin:12px 0 8px; letter-spacing:0.01em;}
+  .cat-card p{font-size:13px; color:rgba(255,255,255,0.55); line-height:1.5;}
+
+  /* ===== industries ===== */
+  .ind-grid{
+    display:grid; grid-template-columns:repeat(6,1fr); gap:12px;
+  }
+  @media (max-width:860px){ .ind-grid{grid-template-columns:repeat(3,1fr);} }
+  @media (max-width:520px){ .ind-grid{grid-template-columns:repeat(2,1fr);} }
+  .ind-chip{
+    border:1px solid var(--line-dark);
+    background:var(--white);
+    padding:18px 14px;
+    text-align:center;
+    font-size:13.5px;
+    font-weight:600;
+    color:var(--navy);
+    letter-spacing:0.01em;
+    text-transform:uppercase;
+    transition:border-color .2s, color .2s;
+  }
+  .ind-chip:hover{border-color:var(--teal); color:var(--teal);}
+
+  /* ===== why choose ===== */
+  .why-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:28px;}
+  @media (max-width:900px){ .why-grid{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:520px){ .why-grid{grid-template-columns:1fr;} }
+  .why-card{border-top:3px solid var(--orange); padding-top:18px;}
+  .why-card h4{font-size:15.5px; color:var(--navy-deep); margin-bottom:8px;}
+  .why-card p{font-size:14px; color:var(--steel);}
+
+  /* ===== process ===== */
+  .process-row{
+    display:flex; overflow-x:auto; gap:0;
+    border-top:1px solid var(--line-dark);
+    border-bottom:1px solid var(--line-dark);
+  }
+  .process-step{
+    flex:1; min-width:170px;
+    padding:26px 22px;
+    border-right:1px solid var(--line-dark);
+    position:relative;
+  }
+  .process-step:last-child{border-right:none;}
+  .process-step .idx{font-family:'JetBrains Mono',monospace; color:var(--orange); font-size:13px; margin-bottom:10px;}
+  .process-step h4{font-size:14.5px; color:var(--navy-deep); text-transform:none; letter-spacing:0; font-weight:600;}
+  .process-step p{font-size:12.5px; color:var(--steel); margin-top:6px;}
+
+  /* ===== featured products ===== */
+  .prod-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px;}
+  @media (max-width:900px){ .prod-grid{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:600px){ .prod-grid{grid-template-columns:1fr;} }
+  .prod-card{
+    background:var(--white);
+    border:1px solid var(--line-dark);
+    padding:26px 24px;
+    transition:box-shadow .2s ease, transform .2s ease;
+  }
+  .prod-card:hover{box-shadow:0 14px 30px rgba(7,26,48,0.10); transform:translateY(-3px);}
+  .prod-card .tag{
+    font-family:'JetBrains Mono',monospace; font-size:10.5px; color:var(--teal);
+    letter-spacing:0.1em; text-transform:uppercase; margin-bottom:12px; display:block;
+  }
+  .prod-card h4{font-size:18px; color:var(--navy-deep); margin-bottom:10px;}
+  .prod-card p{font-size:13.5px; color:var(--steel); margin-bottom:14px;}
+  .prod-card .meta{display:flex; flex-wrap:wrap; gap:8px;}
+  .prod-card .meta span{
+    font-family:'JetBrains Mono',monospace; font-size:10.5px;
+    background:var(--paper-dim); color:var(--navy-mid);
+    padding:4px 9px; letter-spacing:0.03em;
+  }
+
+  /* ===== applications ===== */
+  .app-band{background:var(--paper-dim);}
+  .app-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line-dark); border:1px solid var(--line-dark);}
+  @media (max-width:860px){ .app-grid{grid-template-columns:repeat(2,1fr);} }
+  .app-cell{background:var(--paper-dim); padding:24px 20px;}
+  .app-cell h4{font-size:14.5px; color:var(--navy-deep); margin-bottom:4px;}
+  .app-cell p{font-size:12.5px; color:var(--steel);}
+
+  /* ===== trust ===== */
+  .trust-grid{display:grid; grid-template-columns:repeat(5,1fr); gap:0; border-top:1px solid var(--line-dark);}
+  @media (max-width:860px){ .trust-grid{grid-template-columns:repeat(2,1fr);} }
+  .trust-item{padding:26px 20px; border-right:1px solid var(--line-dark); border-bottom:1px solid var(--line-dark);}
+  .trust-item h4{font-size:14px; color:var(--navy-deep); margin-bottom:6px;}
+  .trust-item p{font-size:12.5px; color:var(--steel);}
+
+  /* ===== CTA band ===== */
+  .cta-band{
+    background:linear-gradient(120deg, var(--navy-deep), var(--navy-mid));
+    color:var(--white);
+    text-align:center;
+    padding:76px 24px;
+    position:relative;
+    overflow:hidden;
+  }
+  .cta-band::before{
+    content:"";
+    position:absolute; inset:0;
+    background:radial-gradient(600px 300px at 50% 120%, rgba(232,98,44,0.25), transparent 70%);
+  }
+  .cta-band .inner{position:relative; z-index:2; max-width:640px; margin:0 auto;}
+  .cta-band h2{font-size:clamp(26px,3.4vw,38px); margin-bottom:14px;}
+  .cta-band p{color:rgba(255,255,255,0.72); font-size:16px; margin-bottom:32px;}
+  .cta-actions{display:flex; justify-content:center; flex-wrap:wrap; gap:14px;}
+
+  /* ===== contact / footer ===== */
+  footer{background:var(--navy-deep); color:rgba(255,255,255,0.75);}
+  .footer-grid{
+    display:grid; grid-template-columns:1.3fr 1fr 1fr; gap:44px;
+    padding:64px 0 40px;
+    border-bottom:1px solid var(--line);
+  }
+  @media (max-width:860px){ .footer-grid{grid-template-columns:1fr; gap:32px;} }
+  .footer-grid h4{color:var(--white); font-size:14px; letter-spacing:0.08em; margin-bottom:16px; text-transform:uppercase;}
+  .footer-grid .brand{margin-bottom:16px;}
+  .footer-grid p, .footer-grid a{font-size:14px; color:rgba(255,255,255,0.65); line-height:1.7;}
+  .footer-grid ul{list-style:none;}
+  .footer-grid li{margin-bottom:9px;}
+  .footer-grid a:hover{color:var(--teal-bright);}
+  .map-embed{width:100%; height:180px; border:1px solid var(--line); filter:grayscale(0.3);}
+  .foot-bottom{padding:22px 0; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; font-size:12.5px; color:rgba(255,255,255,0.45);}
+
+  /* ===== floating buttons ===== */
+  .float-wa{
+    position:fixed; right:22px; bottom:22px; z-index:200;
+    width:56px; height:56px; border-radius:50%;
+    background:#25D366;
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:0 8px 22px rgba(0,0,0,0.28);
+    transition:transform .15s;
+  }
+  .float-wa:hover{transform:scale(1.07);}
+  .sticky-quote{
+    position:fixed; left:22px; bottom:22px; z-index:200;
+  }
+  @media (max-width:640px){
+    .sticky-quote{left:0; right:0; bottom:0; width:100%;}
+    .sticky-quote .btn{width:100%; justify-content:center; border-radius:0; padding:16px;}
+    .float-wa{right:16px; bottom:76px;}
+  }
+
+  /* mobile nav */
+  @media (max-width:900px){
+    nav.links{
+      position:fixed; top:70px; left:0; right:0; bottom:0;
+      background:var(--navy-deep);
+      flex-direction:column; align-items:flex-start;
+      padding:28px 24px; gap:22px;
+      transform:translateX(100%);
+      transition:transform .25s ease;
+    }
+    nav.links.open{transform:translateX(0);}
+    nav.links a{font-size:16px;}
+    .header-cta .btn-ghost{display:none;}
+    .menu-toggle{display:block;}
+  }
+
+  ::selection{background:var(--teal); color:var(--white);}
+  :focus-visible{outline:2px solid var(--orange); outline-offset:2px;}
+</style>
+</head>
+<body>
+
+<!-- ================= HEADER ================= -->
+<header>
+  <div class="nav-inner">
+    <a href="#home" class="brand">
+      <span class="brand-mark">
+        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill="#14b3ae" d="M50 6l6 10 11-4 3 12 12-1 -1 12 12 3-4 11 10 6-10 6 4 11-12 3 1 12-12-1-3 12-11-4-6 10-6-10-11 4-3-12-12 1 1-12-12-3 4-11-10-6 10-6-4-11 12-3-1-12 12 1 3-12 11 4z"/>
+          <circle cx="50" cy="50" r="20" fill="#071a30"/>
+        </svg>
+      </span>
+      <span class="brand-text">
+        <span class="name">Shree Dipeshwari<br>Engineering</span>
+        <span class="tag">Complete Polymer Solution</span>
+      </span>
+    </a>
+    <nav class="links" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#products">Products</a>
+      <a href="#industries">Industries</a>
+      <a href="#process">Process</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="header-cta">
+      <a href="tel:+919924314732" class="btn btn-ghost">Call Now</a>
+      <a href="#contact" class="btn btn-orange">Request Quote</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">☰</button>
+    </div>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="home">
+  <div class="wrap hero-inner">
+    <div>
+      <div class="eyebrow">Vadodara, Gujarat &middot; Manufacturer</div>
+      <h1>Precision Industrial Sealing &amp; <span>Engineering Polymer</span> Solutions</h1>
+      <p class="lead">Manufacturer of Rubber Moulded Parts, O-Rings, Oil Seals, PTFE, PU, Nylon &amp; Silicone components — engineered to your drawing, in any shore hardness, for mining, cement, pharma, chemical and heavy engineering industries.</p>
+      <div class="hero-actions">
+        <a href="tel:+919924314732" class="btn btn-orange">📞 Call Now</a>
+        <a href="#contact" class="btn btn-teal">📧 Request a Quote</a>
+        <a href="#contact" class="btn btn-ghost">📄 Download Catalogue</a>
+      </div>
+      <div class="hero-strip">
+        <div class="stat"><div class="num">25A–95A</div><div class="lbl">Shore Hardness Range</div></div>
+        <div class="stat"><div class="num">1400°C</div><div class="lbl">High-Temp Bellows Rated</div></div>
+        <div class="stat"><div class="num">10+</div><div class="lbl">Polymer Product Lines</div></div>
+        <div class="stat"><div class="num">2 Decades</div><div class="lbl">Trusted Manufacturing</div></div>
+      </div>
+    </div>
+    <div class="gear-cluster" aria-hidden="true">
+      <svg viewBox="0 0 400 400">
+        <g class="gear-big">
+          <path fill="none" stroke="#14b3ae" stroke-width="1.4" opacity="0.55"
+            d="M200 60 l14 22 25-9 7 27 27-2 -2 27 27 7-9 25 22 14-22 14 9 25-27 7 2 27-27-2-7 27-25-9-14 22-14-22-25 9-7-27-27 2 2-27-27-7 9-25-22-14 22-14-9-25 27-7-2-27 27 2 7-27 25 9z"/>
+          <circle cx="200" cy="200" r="52" fill="none" stroke="#14b3ae" stroke-width="1.4" opacity="0.55"/>
+        </g>
+        <g class="gear-small" transform="translate(268,120) scale(0.42)">
+          <path fill="#e8622c" opacity="0.85"
+            d="M200 60 l14 22 25-9 7 27 27-2 -2 27 27 7-9 25 22 14-22 14 9 25-27 7 2 27-27-2-7 27-25-9-14 22-14-22-25 9-7-27-27 2 2-27-27-7 9-25-22-14 22-14-9-25 27-7-2-27 27 2 7-27 25 9z"/>
+          <circle cx="200" cy="200" r="52" fill="#071a30"/>
+        </g>
+        <circle cx="200" cy="200" r="3" fill="#f3f5f7"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<div class="spec-ticker" aria-hidden="true">
+  <div class="track">
+    <span><b>NBR</b> &middot; SBR &middot; SILICONE &middot; EPDM — RUBBER MOULDED</span>
+    <span><b>PTFE</b> — VIRGIN / GLASS FILLED / CARBON FILLED / BRONZE FILLED / PEEK FILLED</span>
+    <span><b>PU</b> — 25A TO 95A SHORE HARDNESS</span>
+    <span><b>SEALS</b> — U-CUP / WIPER / V-PACKING / PISTON / GUIDE RINGS</span>
+    <span><b>NYLON</b> — PP / HDPE / PVC / POM / PE</span>
+    <span><b>BELLOWS</b> — RATED 1200°C TO 1400°C</span>
+    <span><b>NBR</b> &middot; SBR &middot; SILICONE &middot; EPDM — RUBBER MOULDED</span>
+    <span><b>PTFE</b> — VIRGIN / GLASS FILLED / CARBON FILLED / BRONZE FILLED / PEEK FILLED</span>
+    <span><b>PU</b> — 25A TO 95A SHORE HARDNESS</span>
+    <span><b>SEALS</b> — U-CUP / WIPER / V-PACKING / PISTON / GUIDE RINGS</span>
+    <span><b>NYLON</b> — PP / HDPE / PVC / POM / PE</span>
+    <span><b>BELLOWS</b> — RATED 1200°C TO 1400°C</span>
+  </div>
+</div>
+
+<!-- ================= ABOUT ================= -->
+<section id="about">
+  <div class="wrap about-grid">
+    <div>
+      <div class="eyebrow">About SDE</div>
+      <h2>Two decades of polymer engineering, built on custom manufacturing.</h2>
+      <p>Shree Dipeshwari Engineering manufactures and supplies high-performance polyurethane, rubber, PTFE, nylon and silicone components for industrial applications across India and international markets. From 25A to 95A shore hardness, from vacuum bellows to 1400°C fireproof high-temperature bellows — every part is engineered to your size, shape, colour and specification.</p>
+    </div>
+    <div class="feature-list">
+      <div class="item"><div class="ic">01 / CAPABILITY</div><h4>Custom Manufacturing to Drawing</h4></div>
+      <div class="item"><div class="ic">02 / MATERIAL</div><h4>High-Quality Engineering Polymers</h4></div>
+      <div class="item"><div class="ic">03 / SPEED</div><h4>Fast Turnaround &amp; Delivery</h4></div>
+      <div class="item"><div class="ic">04 / VALUE</div><h4>Competitive, Direct Pricing</h4></div>
+      <div class="item"><div class="ic">05 / REACH</div><h4>Serving Industries Pan-India</h4></div>
+      <div class="item"><div class="ic">06 / TRUST</div><h4>Trusted 2 Decades in Bellows &amp; Seals</h4></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PRODUCT CATEGORIES ================= -->
+<section class="section-alt" id="products">
+  <div class="wrap">
+    <div class="cat-head">
+      <div>
+        <div class="eyebrow">Product Range</div>
+        <h2>Everything you need, one polymer partner.</h2>
+      </div>
+      <p>From standard O-rings to fireproof bellows rated to 1400°C — manufactured in-house across ten product families.</p>
+    </div>
+    <div class="cat-grid">
+      <div class="cat-card"><div class="num">P-01</div><h4>O-Rings &amp; Oil Seals</h4><p>NBR, SBR, Silicone, EPDM — oil-proof, flame-protected, 99% hardness.</p></div>
+      <div class="cat-card"><div class="num">P-02</div><h4>Hydraulic &amp; Pneumatic Seals</h4><p>U-cup, wiper, V-packing, piston, guide &amp; backup rings.</p></div>
+      <div class="cat-card"><div class="num">P-03</div><h4>PTFE Products</h4><p>Rods, bushes, moulded &amp; skived sheets, pipes, machined gaskets.</p></div>
+      <div class="cat-card"><div class="num">P-04</div><h4>PU Products</h4><p>Blocks, pads, sheets, rods, tubes, rings, sleeves &amp; wheels.</p></div>
+      <div class="cat-card"><div class="num">P-05</div><h4>Nylon Components</h4><p>Nylon, PP, HDPE, PVC, POM rods, sheets, profiles &amp; machine parts.</p></div>
+      <div class="cat-card"><div class="num">P-06</div><h4>Rubber Sheets &amp; Mats</h4><p>Checkered sheets, rib mats, insulated mats, cork sheets.</p></div>
+      <div class="cat-card"><div class="num">P-07</div><h4>Silicone Products</h4><p>Hoses, gaskets, diaphragms, sleeves &amp; vacuum bellows.</p></div>
+      <div class="cat-card"><div class="num">P-08</div><h4>Bellows</h4><p>Rubber, PTFE, silicone &amp; high-temperature expansion bellows.</p></div>
+      <div class="cat-card"><div class="num">P-09</div><h4>Gaskets</h4><p>FFKM, Viton, Silicone, Neoprene, EPDM &amp; PTFE grades.</p></div>
+      <div class="cat-card"><div class="num">P-10</div><h4>Custom Rubber Moulding</h4><p>Diaphragms, bush &amp; stoppers, seals, washers, import substitutes.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= INDUSTRIES ================= -->
+<section id="industries">
+  <div class="wrap">
+    <div class="eyebrow">Industries We Serve</div>
+    <h2 style="font-size:clamp(26px,3.2vw,36px); margin-bottom:36px; max-width:560px;">Built for mining, process plants &amp; heavy engineering.</h2>
+    <div class="ind-grid">
+      <div class="ind-chip">Chemical</div>
+      <div class="ind-chip">Pharma</div>
+      <div class="ind-chip">Food Processing</div>
+      <div class="ind-chip">Cement</div>
+      <div class="ind-chip">Steel</div>
+      <div class="ind-chip">Paper</div>
+      <div class="ind-chip">Packaging</div>
+      <div class="ind-chip">Plastic</div>
+      <div class="ind-chip">Textile</div>
+      <div class="ind-chip">Power</div>
+      <div class="ind-chip">OEM</div>
+      <div class="ind-chip">Heavy Engineering</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WHY CHOOSE US ================= -->
+<section style="background:var(--paper-dim);">
+  <div class="wrap">
+    <div class="eyebrow">Why Choose Us</div>
+    <h2 style="font-size:clamp(26px,3.2vw,36px); margin-bottom:40px; max-width:560px;">Reverse-engineered replacements, delivered fast.</h2>
+    <div class="why-grid">
+      <div class="why-card"><h4>Custom Design &amp; Development</h4><p>Engineered to your exact drawing or physical sample.</p></div>
+      <div class="why-card"><h4>Reverse Engineering</h4><p>Worn or obsolete part in hand — we rebuild the spec.</p></div>
+      <div class="why-card"><h4>OEM Replacement Parts</h4><p>Import substitutes matched to original tolerances.</p></div>
+      <div class="why-card"><h4>Fast Manufacturing</h4><p>In-house tooling keeps lead times short.</p></div>
+      <div class="why-card"><h4>Quality Tested Products</h4><p>Checked for hardness, tensile strength &amp; tolerance.</p></div>
+      <div class="why-card"><h4>Bulk Supply</h4><p>Consistent quality across large production runs.</p></div>
+      <div class="why-card"><h4>Emergency Deliveries</h4><p>Plant down? We prioritise critical-spare dispatch.</p></div>
+      <div class="why-card"><h4>Technical Support</h4><p>Material &amp; grade selection guidance before you order.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROCESS ================= -->
+<section id="process">
+  <div class="wrap">
+    <div class="eyebrow">Our Process</div>
+    <h2 style="font-size:clamp(26px,3.2vw,36px); margin-bottom:36px; max-width:560px;">From drawing to dispatch.</h2>
+  </div>
+  <div class="wrap" style="padding:0 24px;">
+    <div class="process-row">
+      <div class="process-step"><div class="idx">01</div><h4>Share Drawing / Sample</h4><p>Send spec, drawing or worn part.</p></div>
+      <div class="process-step"><div class="idx">02</div><h4>Technical Review</h4><p>Our engineers assess tolerance &amp; application.</p></div>
+      <div class="process-step"><div class="idx">03</div><h4>Material Selection</h4><p>Right polymer grade for your environment.</p></div>
+      <div class="process-step"><div class="idx">04</div><h4>Sample Development</h4><p>First-off sample for your approval.</p></div>
+      <div class="process-step"><div class="idx">05</div><h4>Production</h4><p>In-house manufacturing at scale.</p></div>
+      <div class="process-step"><div class="idx">06</div><h4>Dispatch</h4><p>Quality-checked, packed &amp; shipped.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FEATURED PRODUCTS ================= -->
+<section style="background:var(--paper-dim);">
+  <div class="wrap">
+    <div class="eyebrow">Featured Products</div>
+    <h2 style="font-size:clamp(26px,3.2vw,36px); margin-bottom:40px; max-width:560px;">Reach for these first.</h2>
+    <div class="prod-grid">
+      <div class="prod-card">
+        <span class="tag">Polyurethane</span>
+        <h4>PU Wheels &amp; Re-coating</h4>
+        <p>Long service life PU wheels for industrial equipment &amp; trolleys. Recoat the metal hub instead of replacing it — avoids retooling cost.</p>
+        <div class="meta"><span>25A–95A Shore</span><span>Any Size/Colour</span></div>
+      </div>
+      <div class="prod-card">
+        <span class="tag">PTFE</span>
+        <h4>PTFE Machined Components</h4>
+        <p>Gaskets, valve components &amp; bellows in Virgin, Glass Filled, Carbon Filled, Bronze Filled &amp; PEEK Filled grades.</p>
+        <div class="meta"><span>Chemical Inert</span><span>Heat Resistant</span></div>
+      </div>
+      <div class="prod-card">
+        <span class="tag">Hydraulics &amp; Pneumatics</span>
+        <h4>Seal Kits</h4>
+        <p>U-cup, wiper, V-packing, wear rings, piston &amp; guide rings for mining, construction, cement &amp; granite equipment.</p>
+        <div class="meta"><span>PU / Rubber / PTFE</span><span>High Pressure</span></div>
+      </div>
+      <div class="prod-card">
+        <span class="tag">Silicone</span>
+        <h4>Pharma &amp; Food Gaskets</h4>
+        <p>Door gaskets, tri-clover gaskets, validation gaskets &amp; NovAseptic diaphragms for critical hygienic applications.</p>
+        <div class="meta"><span>FDA-Grade Silicone</span><span>Biotech Approved</span></div>
+      </div>
+      <div class="prod-card">
+        <span class="tag">Bellows</span>
+        <h4>High Temperature Bellows</h4>
+        <p>Fabric &amp; PTFE bellows for furnace-side use — fireproof and rated up to 1400°C.</p>
+        <div class="meta"><span>1200–1400°C</span><span>Fireproof</span></div>
+      </div>
+      <div class="prod-card">
+        <span class="tag">Rubber Moulded</span>
+        <h4>Gaskets &amp; Diaphragms</h4>
+        <p>FFKM, Viton, Silicone, Neoprene &amp; EPDM gaskets — high &amp; low temperature resistant, non-contaminating.</p>
+        <div class="meta"><span>Oil-Proof</span><span>Ozone-Proof</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= APPLICATIONS ================= -->
+<section class="app-band">
+  <div class="wrap">
+    <div class="eyebrow">Where Our Parts Work</div>
+    <h2 style="font-size:clamp(26px,3.2vw,36px); margin-bottom:36px; max-width:560px;">Applications &amp; equipment.</h2>
+    <div class="app-grid">
+      <div class="app-cell"><h4>Hydraulic Systems</h4><p>Cylinders, seal kits, wear rings</p></div>
+      <div class="app-cell"><h4>Pneumatic Systems</h4><p>Piston &amp; wiper seals</p></div>
+      <div class="app-cell"><h4>Pumps &amp; Valves</h4><p>Gaskets, O-rings, diaphragms</p></div>
+      <div class="app-cell"><h4>Compressors</h4><p>High-temperature seals</p></div>
+      <div class="app-cell"><h4>Conveyors</h4><p>PU wheels, rollers, sleeves</p></div>
+      <div class="app-cell"><h4>Gearboxes</h4><p>Oil seals, bush &amp; stoppers</p></div>
+      <div class="app-cell"><h4>Process Plants</h4><p>Expansion joints, bellows</p></div>
+      <div class="app-cell"><h4>Furnaces</h4><p>PTFE &amp; high-temp bellows</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TRUST ================= -->
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Why Customers Trust Us</div>
+    <h2 style="font-size:clamp(26px,3.2vw,36px); margin-bottom:8px; max-width:560px;">Capability backed by response time.</h2>
+  </div>
+  <div class="wrap" style="padding:0 24px;">
+    <div class="trust-grid">
+      <div class="trust-item"><h4>Manufacturing Capability</h4><p>In-house tooling across 10 product lines.</p></div>
+      <div class="trust-item"><h4>Quality Inspection</h4><p>Hardness, tensile &amp; tolerance checked.</p></div>
+      <div class="trust-item"><h4>Customization</h4><p>Any size, shape, colour, hardness.</p></div>
+      <div class="trust-item"><h4>Technical Support</h4><p>Grade &amp; material guidance included.</p></div>
+      <div class="trust-item"><h4>Fast Response</h4><p>Quotation within 24 hours.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CTA BAND ================= -->
+<section class="cta-band">
+  <div class="inner">
+    <h2>Need an O-Ring, PTFE Component, PU Wheel, or Custom Rubber Part?</h2>
+    <p>Get a Quotation Within 24 Hours — share your drawing, sample or spec and our engineers will get back to you.</p>
+    <div class="cta-actions">
+      <a href="https://wa.me/919924314732" class="btn btn-orange">💬 WhatsApp</a>
+      <a href="tel:+919924314732" class="btn btn-teal">📞 Call</a>
+      <a href="mailto:shreedipeshwariengg@gmail.com" class="btn btn-ghost">📧 Email</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT / FOOTER ================= -->
+<footer id="contact">
+  <div class="wrap footer-grid">
+    <div>
+      <div class="brand" style="color:var(--white);">
+        <span class="brand-mark">
+          <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill="#14b3ae" d="M50 6l6 10 11-4 3 12 12-1 -1 12 12 3-4 11 10 6-10 6 4 11-12 3 1 12-12-1-3 12-11-4-6 10-6-10-11 4-3-12-12 1 1-12-12-3 4-11-10-6 10-6-4-11 12-3-1-12 12 1 3-12 11 4z"/>
+            <circle cx="50" cy="50" r="20" fill="#071a30"/>
+          </svg>
+        </span>
+        <span class="brand-text">
+          <span class="name" style="color:#fff;">Shree Dipeshwari<br>Engineering</span>
+          <span class="tag">Complete Polymer Solution</span>
+        </span>
+      </div>
+      <p style="max-width:320px;">Manufacturer of rubber moulded parts, O-rings, oil seals, PTFE, PU, nylon &amp; silicone engineering components — Polymers &middot; Hydraulics &amp; Pneumatics &middot; Earth Moving.</p>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <ul>
+        <li>📍 FF-13, Divine Galaxy, Nr. Lotus Court, Opp. C.M. Patel Farm, Kalali Village Road, Vadodara – 390012</li>
+        <li>📞 <a href="tel:+919924314732">+91 9924 314732</a></li>
+        <li>📞 <a href="tel:+919313860251">+91 93138 60251</a></li>
+        <li>📧 <a href="mailto:shreedipeshwariengg@gmail.com">shreedipeshwariengg@gmail.com</a></li>
+        <li>🕐 Mon–Sat, 9:30 AM – 7:00 PM</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Find Us</h4>
+      <iframe class="map-embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+        src="https://maps.google.com/maps?q=Kalali%20Village%20Road%2C%20Vadodara%20390012&t=&z=14&ie=UTF8&iwloc=&output=embed"
+        title="SDE Location Map"></iframe>
+    </div>
+  </div>
+  <div class="wrap foot-bottom">
+    <span>&copy; 2026 Shree Dipeshwari Engineering. All rights reserved.</span>
+    <span>Polymers &middot; Hydraulics &amp; Pneumatics &middot; Earth Moving</span>
+  </div>
+</footer>
+
+<!-- ================= FLOATING BUTTONS ================= -->
+<a href="https://wa.me/919924314732" class="float-wa" aria-label="Chat on WhatsApp" target="_blank" rel="noopener">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.28-1.38a9.9 9.9 0 0 0 4.76 1.21h.01c5.46 0 9.91-4.45 9.91-9.92C21.96 6.45 17.5 2 12.04 2zm5.83 14.1c-.25.7-1.44 1.34-1.98 1.42-.5.08-1.13.11-1.83-.12-.42-.13-.96-.31-1.65-.6-2.9-1.25-4.8-4.16-4.94-4.36-.14-.2-1.18-1.57-1.18-3 0-1.42.75-2.12 1.02-2.41.27-.29.58-.36.78-.36.2 0 .39 0 .56.01.18.01.42-.07.65.5.25.6.85 2.08.92 2.23.07.15.12.33.02.53-.1.2-.15.32-.29.49-.15.17-.31.38-.44.51-.15.15-.3.31-.13.61.17.3.76 1.25 1.63 2.02 1.12 1 2.06 1.31 2.36 1.46.3.15.48.13.65-.08.18-.2.75-.87.95-1.17.2-.3.4-.24.66-.15.27.1 1.71.81 2 .96.29.15.48.22.55.35.07.13.07.75-.18 1.45z"/></svg>
+</a>
+<div class="sticky-quote">
+  <a href="#contact" class="btn btn-orange">📄 Request a Quote</a>
+</div>
+
+<script>
+  const toggle = document.getElementById('menuToggle');
+  const links = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => links.classList.toggle('open'));
+  document.querySelectorAll('nav.links a').forEach(a=>{
+    a.addEventListener('click', ()=> links.classList.remove('open'));
+  });
+</script>
+
+</body>
+</html>
