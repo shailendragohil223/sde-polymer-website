@@ -36,6 +36,15 @@ app.get('/api/health', (req, res) => {
   });
 });
 
+// Serve the built React frontend (frontend/dist) so one service hosts the whole app
+const frontendDist = path.join(__dirname, '..', 'frontend', 'dist');
+app.use(express.static(frontendDist));
+app.get(/^\/(?!api|uploads).*/, (req, res, next) => {
+  res.sendFile(path.join(frontendDist, 'index.html'), (err) => {
+    if (err) next();
+  });
+});
+
 // Fallback error handler
 app.use((err, req, res, next) => {
   console.error('Unhandled API Error:', err);

@@ -1,0 +1,21 @@
+# Render Blueprint - free demo deployment (https://render.com/docs/blueprint-spec)
+# One web service: Express serves the API (/api), product images (/uploads)
+# and the built React frontend. Without MySQL env vars the backend runs in
+# its in-memory fallback mode (demo data resets on every restart).
+services:
+  - type: web
+    name: sde-polymer-website
+    runtime: node
+    plan: free
+    buildCommand: npm run build:prod
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_VERSION
+        value: "22"
+      - key: JWT_SECRET
+        generateValue: true
+      - key: ADMIN_USERNAME
+        value: admin
+      - key: ADMIN_PASSWORD
+        sync: false

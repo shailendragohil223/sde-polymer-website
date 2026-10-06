@@ -109,3 +109,21 @@ npm run dev
 - **Frontend Public Website**: `http://localhost:3000`
 - **Admin Portal**: `http://localhost:3000/admin`
 - **Backend REST API**: `http://localhost:5000/api`
+
+---
+
+## ☁️ Free Demo Deployment (Render)
+
+The app deploys as **one free Render web service**: Express serves the REST API (`/api`), product images (`/uploads`) and the built React frontend.
+
+1. Sign in at [render.com](https://render.com) with your GitHub account.
+2. **New → Blueprint**, pick this repository. Render reads `render.yaml`.
+3. Enter a value for `ADMIN_PASSWORD` when prompted, then **Apply**.
+4. After the build finishes, open `https://<service-name>.onrender.com` (admin at `/admin`).
+
+Notes:
+- With no `DB_*` variables set, the backend runs in its **in-memory fallback mode**: seeded catalog data works, but quotes/inquiries/product edits reset whenever the service restarts.
+- For persistent data, create a free hosted MySQL database (e.g. Aiven, TiDB Cloud) and add `DB_HOST`, `DB_PORT`, `DB_USER`, `DB_PASSWORD`, `DB_NAME` in the Render dashboard.
+- Free services sleep after ~15 min idle; the first visit afterwards takes ~30–60 s to wake up. Open the link a minute before the client demo.
+
+Production build locally: `npm run build:prod && npm start` → `http://localhost:5000`.
