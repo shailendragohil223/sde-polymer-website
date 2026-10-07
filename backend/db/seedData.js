@@ -62,6 +62,8 @@ const initialData = {
       temp_rating: '-30°C to +90°C',
       applications: 'Heavy Material Handling, Forklifts, AGVs, Factory Overhead Cranes, Trolleys',
       features: 'High abrasion resistance, floor non-marking, hub recoating service, custom durometer',
+      image_url: '/uploads/products/pu-wheels-assortment.jpg',
+      gallery_images: ['/uploads/products/pu-drive-wheels.jpg'],
       is_featured: true,
       order_index: 1
     },
