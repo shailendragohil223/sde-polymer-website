@@ -183,7 +183,7 @@ export default function AdminDashboardPage({ onToast }) {
               <h3 style={{ fontSize: '16px', color: 'var(--white)', letterSpacing: '0.02em' }}>
                 SDE Engineering &middot; Administration Console
               </h3>
-              <span className="mono" style={{ fontSize: '11px', color: 'var(--teal-bright)' }}>
+              <span className="mono" style={{ fontSize: '11px', color: 'var(--accent-bright)' }}>
                 <Database size={11} style={{ display: 'inline', marginRight: '4px' }} />
                 MySQL Engine: {stats?.dbMode || 'Live'}
               </span>
@@ -197,7 +197,7 @@ export default function AdminDashboardPage({ onToast }) {
             <button 
               type="button" 
               onClick={fetchAdminData} 
-              className="btn btn-outline-teal btn-sm"
+              className="btn btn-outline-accent btn-sm"
               title="Refresh database records"
             >
               <RefreshCw size={14} className={loading ? 'spin' : ''} /> Refresh
@@ -211,7 +211,7 @@ export default function AdminDashboardPage({ onToast }) {
             <button 
               type="button" 
               onClick={handleLogout} 
-              className="btn btn-orange btn-sm"
+              className="btn btn-primary btn-sm"
               title="Sign Out"
             >
               <LogOut size={14} /> Sign Out
@@ -325,7 +325,7 @@ export default function AdminDashboardPage({ onToast }) {
                           </td>
                           <td>
                             <div><strong>{q.material || 'Custom Polymer'}</strong></div>
-                            <div className="mono" style={{ fontSize: '11px', color: 'var(--teal)' }}>
+                            <div className="mono" style={{ fontSize: '11px', color: 'var(--accent)' }}>
                               Hardness: {q.shore_hardness || 'Standard'}
                             </div>
                           </td>
@@ -428,7 +428,7 @@ export default function AdminDashboardPage({ onToast }) {
                 </div>
                 <button 
                   type="button" 
-                  className="btn btn-orange btn-sm"
+                  className="btn btn-primary btn-sm"
                   onClick={() => setShowAddModal(!showAddModal)}
                 >
                   <Plus size={15} /> {showAddModal ? 'Cancel' : 'Add New Product'}
@@ -522,7 +522,7 @@ export default function AdminDashboardPage({ onToast }) {
                       />
                       Feature this product in 'Featured Products' on homepage
                     </label>
-                    <button type="submit" className="btn btn-teal">
+                    <button type="submit" className="btn btn-secondary">
                       Save Product to MySQL
                     </button>
                   </div>

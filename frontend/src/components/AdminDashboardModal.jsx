@@ -152,7 +152,7 @@ export default function AdminDashboardModal({ isOpen, onClose, onToast, onRefres
             </span>
             <h2 style={{ fontSize: '24px', color: 'var(--navy-deep)', display: 'flex', alignItems: 'center', gap: '10px' }}>
               Admin Dashboard &amp; CMS
-              <span className="mono" style={{ fontSize: '12px', background: 'var(--teal-glow)', color: 'var(--teal)', padding: '2px 8px', borderRadius: '4px' }}>
+              <span className="mono" style={{ fontSize: '12px', background: 'var(--accent-glow)', color: 'var(--accent)', padding: '2px 8px', borderRadius: '4px' }}>
                 <Database size={12} style={{ display: 'inline', marginRight: '4px' }} />
                 Engine: {stats?.dbMode || 'Live MySQL'}
               </span>
@@ -256,7 +256,7 @@ export default function AdminDashboardModal({ isOpen, onClose, onToast, onRefres
                       </td>
                       <td>
                         <div>{q.material || 'Standard Polymer'}</div>
-                        <div className="mono" style={{ fontSize: '11px', color: 'var(--teal)' }}>{q.shore_hardness}</div>
+                        <div className="mono" style={{ fontSize: '11px', color: 'var(--accent)' }}>{q.shore_hardness}</div>
                       </td>
                       <td>
                         <div>Qty: <strong>{q.quantity || '1'}</strong></div>
@@ -342,7 +342,7 @@ export default function AdminDashboardModal({ isOpen, onClose, onToast, onRefres
               <h4 style={{ fontSize: '16px' }}>Catalog Items ({products.length})</h4>
               <button 
                 type="button" 
-                className="btn btn-orange btn-sm"
+                className="btn btn-primary btn-sm"
                 onClick={() => setShowAddForm(!showAddForm)}
               >
                 <Plus size={14} /> {showAddForm ? 'Cancel' : 'Add New Product'}
@@ -433,7 +433,7 @@ export default function AdminDashboardModal({ isOpen, onClose, onToast, onRefres
                     />
                     Feature this product on homepage
                   </label>
-                  <button type="submit" className="btn btn-teal btn-sm">
+                  <button type="submit" className="btn btn-secondary btn-sm">
                     Save Product to MySQL
                   </button>
                 </div>

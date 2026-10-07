@@ -39,7 +39,7 @@ export default function FeaturedProducts({ products, onSelectProduct, onOpenQuot
                 </button>
                 <button 
                   type="button" 
-                  className="btn btn-orange btn-sm"
+                  className="btn btn-primary btn-sm"
                   onClick={() => onOpenQuote(prod)}
                 >
                   <FileText size={13} /> Quote

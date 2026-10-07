@@ -81,7 +81,7 @@ export default function ProductCatalog({ categories, products, onSelectProduct, 
               <div className="num">{cat.code}</div>
               <h4>{cat.name}</h4>
               <p>{cat.description}</p>
-              <div style={{ marginTop: '14px', display: 'flex', alignItems: 'center', gap: '6px', color: 'var(--teal-bright)', fontSize: '12px', fontWeight: 600 }}>
+              <div style={{ marginTop: '14px', display: 'flex', alignItems: 'center', gap: '6px', color: 'var(--accent-bright)', fontSize: '12px', fontWeight: 600 }}>
                 <span>View Specifications</span> <ArrowRight size={13} />
               </div>
             </div>
@@ -127,7 +127,7 @@ export default function ProductCatalog({ categories, products, onSelectProduct, 
                     {onOpenQuote && (
                       <button
                         type="button"
-                        className="btn btn-orange btn-sm"
+                        className="btn btn-primary btn-sm"
                         onClick={() => onOpenQuote(prod)}
                       >
                         <FileText size={13} /> Quote
