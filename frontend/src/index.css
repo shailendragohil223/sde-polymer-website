@@ -426,19 +426,15 @@ nav.links a.active {
   transform-origin: 200px 200px;
 }
 
-.gear-small {
-  animation: spin-slow-rev 26s linear infinite;
-  transform-origin: 200px 200px;
+.hero-logo-disc {
+  fill: #ffffff;
+  stroke: rgba(20, 179, 174, 0.55);
+  stroke-width: 6;
 }
 
 @keyframes spin-slow {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
-}
-
-@keyframes spin-slow-rev {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(-360deg); }
 }
 
 /* ================= SPEC TICKER ================= */
