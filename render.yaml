@@ -7,7 +7,7 @@ services:
     name: sde-polymer-website
     runtime: node
     plan: free
-    buildCommand: npm run build:prod
+    buildCommand: npm install; npm run build
     startCommand: npm start
     healthCheckPath: /api/health
     envVars:
