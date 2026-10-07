@@ -89,7 +89,7 @@ export default function QuoteModal({ isOpen, onClose, selectedProduct, onToast }
             <p style={{ color: 'var(--steel)', fontSize: '15px', maxWidth: '440px', margin: '0 auto 24px' }}>
               Thank you, <strong>{formData.name}</strong>. Our senior polymer engineers will review your drawings &amp; technical specs and revert with a detailed commercial quote within 24 hours.
             </p>
-            <button type="button" className="btn btn-orange" onClick={resetAndClose}>
+            <button type="button" className="btn btn-primary" onClick={resetAndClose}>
               Back to Catalog
             </button>
           </div>
@@ -231,7 +231,7 @@ export default function QuoteModal({ isOpen, onClose, selectedProduct, onToast }
               </span>
               <button 
                 type="submit" 
-                className="btn btn-orange" 
+                className="btn btn-primary" 
                 disabled={loading}
               >
                 <Send size={15} /> {loading ? 'Submitting...' : 'Submit Quote Request'}

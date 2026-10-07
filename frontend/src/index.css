@@ -5,15 +5,17 @@
   --navy-light: #1c4b8e;
   --steel: #5b6b7d;
   --steel-light: #8fa0b5;
-  --teal: #0f8b8d;
-  --teal-bright: #14b3ae;
-  --teal-glow: rgba(20, 179, 174, 0.25);
+  /* Brand palette derived from the SDE logo blue (#0E54A0) */
+  --accent: #1f6fc2;
+  --accent-bright: #5aa9f5;
+  --accent-glow: rgba(90, 169, 245, 0.25);
   --paper: #f3f5f7;
   --paper-dim: #e6eaee;
   --paper-card: #ffffff;
-  --orange: #e8622c;
-  --orange-dark: #c94e1e;
-  --orange-glow: rgba(232, 98, 44, 0.3);
+  --brand: #0e54a0;
+  --brand-dark: #0a3f7a;
+  --brand-hover: #1565c0;
+  --brand-glow: rgba(14, 84, 160, 0.35);
   --white: #ffffff;
   --line: rgba(255, 255, 255, 0.14);
   --line-dark: rgba(7, 26, 48, 0.12);
@@ -82,7 +84,7 @@ img {
   font-size: 13px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--teal);
+  color: var(--accent);
   display: flex;
   align-items: center;
   gap: 12px;
@@ -94,7 +96,7 @@ img {
   content: "";
   width: 26px;
   height: 2px;
-  background: var(--orange);
+  background: var(--brand);
   display: inline-block;
 }
 
@@ -137,16 +139,16 @@ section {
   font-size: 16px;
 }
 
-.btn-orange {
-  background: var(--orange);
+.btn-primary {
+  background: var(--brand);
   color: var(--white);
-  box-shadow: 0 4px 14px var(--orange-glow);
+  box-shadow: 0 4px 14px var(--brand-glow);
 }
 
-.btn-orange:hover {
-  background: var(--orange-dark);
+.btn-primary:hover {
+  background: var(--brand-hover);
   transform: translateY(-2px);
-  box-shadow: 0 8px 22px rgba(232, 98, 44, 0.45);
+  box-shadow: 0 8px 22px rgba(14, 84, 160, 0.45);
 }
 
 .btn-ghost {
@@ -161,15 +163,15 @@ section {
   transform: translateY(-2px);
 }
 
-.btn-teal {
-  background: var(--teal);
+.btn-secondary {
+  background: var(--accent);
   color: var(--white);
 }
 
-.btn-teal:hover {
-  background: var(--teal-bright);
+.btn-secondary:hover {
+  background: #2878cc;
   transform: translateY(-2px);
-  box-shadow: 0 6px 18px var(--teal-glow);
+  box-shadow: 0 6px 18px var(--accent-glow);
 }
 
 .btn-outline-navy {
@@ -184,14 +186,14 @@ section {
   transform: translateY(-2px);
 }
 
-.btn-outline-teal {
+.btn-outline-accent {
   background: transparent;
-  border-color: var(--teal);
-  color: var(--teal);
+  border-color: var(--accent);
+  color: var(--accent);
 }
 
-.btn-outline-teal:hover {
-  background: var(--teal);
+.btn-outline-accent:hover {
+  background: var(--accent);
   color: var(--white);
 }
 
@@ -256,7 +258,7 @@ header {
   font-family: 'JetBrains Mono', monospace;
   font-size: 10px;
   letter-spacing: 0.14em;
-  color: var(--teal-bright);
+  color: var(--accent-bright);
   text-transform: uppercase;
 }
 
@@ -277,7 +279,7 @@ nav.links a {
 
 nav.links a:hover,
 nav.links a.active {
-  color: var(--teal-bright);
+  color: var(--accent-bright);
 }
 
 .header-cta {
@@ -289,7 +291,7 @@ nav.links a.active {
 .admin-badge-btn {
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.2);
-  color: var(--teal-bright);
+  color: var(--accent-bright);
   padding: 8px 12px;
   border-radius: var(--radius-sm);
   font-family: 'JetBrains Mono', monospace;
@@ -302,7 +304,7 @@ nav.links a.active {
 
 .admin-badge-btn:hover {
   background: var(--navy-mid);
-  border-color: var(--teal-bright);
+  border-color: var(--accent-bright);
   color: var(--white);
 }
 
@@ -319,7 +321,7 @@ nav.links a.active {
 .hero {
   position: relative;
   background:
-    radial-gradient(1100px 500px at 85% -10%, rgba(15, 139, 141, 0.38), transparent 65%),
+    radial-gradient(1100px 500px at 85% -10%, rgba(31, 111, 194, 0.38), transparent 65%),
     linear-gradient(180deg, var(--navy-deep) 0%, var(--navy) 60%, var(--navy-mid) 100%);
   color: var(--white);
   overflow: hidden;
@@ -352,8 +354,8 @@ nav.links a.active {
 }
 
 .hero h1 span {
-  color: var(--teal-bright);
-  text-shadow: 0 0 30px rgba(20, 179, 174, 0.4);
+  color: var(--accent-bright);
+  text-shadow: 0 0 30px rgba(90, 169, 245, 0.4);
 }
 
 .hero p.lead {
@@ -393,7 +395,7 @@ nav.links a.active {
   font-family: 'Oswald', sans-serif;
   font-size: 28px;
   font-weight: 700;
-  color: var(--teal-bright);
+  color: var(--accent-bright);
 }
 
 .hero-strip .stat .lbl {
@@ -428,7 +430,7 @@ nav.links a.active {
 
 .hero-logo-disc {
   fill: #ffffff;
-  stroke: rgba(20, 179, 174, 0.55);
+  stroke: rgba(90, 169, 245, 0.55);
   stroke-width: 6;
 }
 
@@ -471,7 +473,7 @@ nav.links a.active {
 }
 
 .spec-ticker span b {
-  color: var(--teal-bright);
+  color: var(--accent-bright);
   font-weight: 600;
 }
 
@@ -514,7 +516,7 @@ nav.links a.active {
 }
 
 .feature-list .item .ic {
-  color: var(--teal);
+  color: var(--accent);
   font-size: 12px;
   margin-bottom: 8px;
   font-family: 'JetBrains Mono', monospace;
@@ -535,7 +537,7 @@ nav.links a.active {
 }
 
 .section-alt .eyebrow {
-  color: var(--teal-bright);
+  color: var(--accent-bright);
 }
 
 .cat-head {
@@ -590,8 +592,8 @@ nav.links a.active {
 
 .catalog-search input:focus {
   outline: none;
-  border-color: var(--teal-bright);
-  box-shadow: 0 0 0 2px var(--teal-glow);
+  border-color: var(--accent-bright);
+  box-shadow: 0 0 0 2px var(--accent-glow);
 }
 
 .catalog-search svg {
@@ -626,8 +628,8 @@ nav.links a.active {
 }
 
 .filter-chip.active {
-  background: var(--teal);
-  border-color: var(--teal-bright);
+  background: var(--accent);
+  border-color: var(--accent-bright);
   color: var(--white);
 }
 
@@ -654,7 +656,7 @@ nav.links a.active {
 .cat-card .num {
   font-family: 'JetBrains Mono', monospace;
   font-size: 11px;
-  color: var(--teal-bright);
+  color: var(--accent-bright);
   letter-spacing: 0.1em;
   font-weight: 600;
 }
@@ -697,14 +699,14 @@ nav.links a.active {
 }
 
 .ind-chip:hover {
-  border-color: var(--teal);
-  color: var(--teal);
+  border-color: var(--accent);
+  color: var(--accent);
   transform: translateY(-3px);
   box-shadow: var(--shadow-sm);
 }
 
 .ind-chip svg {
-  color: var(--teal);
+  color: var(--accent);
   transition: transform 0.2s ease;
 }
 
@@ -720,7 +722,7 @@ nav.links a.active {
 }
 
 .why-card {
-  border-top: 3px solid var(--orange);
+  border-top: 3px solid var(--brand);
   padding-top: 20px;
   background: var(--white);
   padding: 24px 20px;
@@ -768,7 +770,7 @@ nav.links a.active {
 
 .process-step .idx {
   font-family: 'JetBrains Mono', monospace;
-  color: var(--orange);
+  color: var(--brand);
   font-size: 14px;
   margin-bottom: 10px;
   font-weight: 700;
@@ -821,13 +823,13 @@ nav.links a.active {
 .prod-card:hover {
   box-shadow: 0 16px 36px rgba(7, 26, 48, 0.12);
   transform: translateY(-4px);
-  border-color: rgba(15, 139, 141, 0.4);
+  border-color: rgba(31, 111, 194, 0.4);
 }
 
 .prod-card .tag {
   font-family: 'JetBrains Mono', monospace;
   font-size: 11px;
-  color: var(--teal);
+  color: var(--accent);
   letter-spacing: 0.1em;
   text-transform: uppercase;
   margin-bottom: 12px;
@@ -900,7 +902,7 @@ nav.links a.active {
 .app-cell .tag {
   font-family: 'JetBrains Mono', monospace;
   font-size: 10.5px;
-  color: var(--teal);
+  color: var(--accent);
   text-transform: uppercase;
   margin-bottom: 6px;
   display: block;
@@ -957,7 +959,7 @@ nav.links a.active {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(600px 300px at 50% 120%, rgba(232, 98, 44, 0.28), transparent 70%);
+  background: radial-gradient(600px 300px at 50% 120%, rgba(14, 84, 160, 0.28), transparent 70%);
 }
 
 .cta-band .inner {
@@ -1041,8 +1043,8 @@ nav.links a.active {
 .form-select:focus,
 .form-textarea:focus {
   outline: none;
-  border-color: var(--teal);
-  box-shadow: 0 0 0 3px var(--teal-glow);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-glow);
 }
 
 .contact-info-card {
@@ -1069,7 +1071,7 @@ nav.links a.active {
 }
 
 .contact-info-list li svg {
-  color: var(--teal-bright);
+  color: var(--accent-bright);
   flex-shrink: 0;
   margin-top: 4px;
 }
@@ -1115,7 +1117,7 @@ footer {
 }
 
 .footer-grid a:hover {
-  color: var(--teal-bright);
+  color: var(--accent-bright);
 }
 
 .map-embed {
@@ -1278,7 +1280,7 @@ footer {
 
 .admin-tab-btn.active {
   color: var(--navy);
-  border-bottom-color: var(--orange);
+  border-bottom-color: var(--brand);
 }
 
 .admin-table {
@@ -1337,7 +1339,7 @@ footer {
   padding: 14px 20px;
   border-radius: var(--radius-sm);
   box-shadow: var(--shadow-lg);
-  border-left: 4px solid var(--teal-bright);
+  border-left: 4px solid var(--accent-bright);
   font-size: 14px;
   display: flex;
   align-items: center;
@@ -1420,12 +1422,12 @@ footer {
 }
 
 ::selection {
-  background: var(--teal);
+  background: var(--accent);
   color: var(--white);
 }
 
 :focus-visible {
-  outline: 2px solid var(--orange);
+  outline: 2px solid var(--brand);
   outline-offset: 2px;
 }
 
@@ -1503,7 +1505,7 @@ footer {
   padding: 2px 6px;
   border-radius: 3px;
   border: 1px solid #dce2e8;
-  color: var(--orange-dark);
+  color: var(--brand-dark);
   font-weight: 600;
 }
 
@@ -1517,7 +1519,7 @@ footer {
 }
 
 .admin-back-link:hover {
-  color: var(--teal);
+  color: var(--accent);
 }
 
 /* ================= STANDALONE ADMIN DASHBOARD PAGE ================= */
@@ -1577,7 +1579,7 @@ footer {
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  background: var(--teal);
+  background: var(--accent);
   color: var(--white);
   font-size: 11px;
   display: flex;

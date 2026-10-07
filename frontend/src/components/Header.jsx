@@ -38,7 +38,7 @@ export default function Header({ siteInfo, onOpenQuote }) {
           <button 
             type="button" 
             onClick={() => onOpenQuote()} 
-            className="btn btn-orange btn-sm"
+            className="btn btn-primary btn-sm"
           >
             <FileText size={14} /> Request Quote
           </button>

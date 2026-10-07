@@ -59,7 +59,7 @@ export default function ProductDetailModal({ product, onClose, onOpenQuote }) {
                     type="button"
                     onClick={() => setActiveImage(src)}
                     aria-label="Show image"
-                    style={{ padding: 0, border: src === activeImage ? '2px solid var(--teal)' : '1px solid var(--line-dark)', borderRadius: '4px', background: 'none', cursor: 'pointer' }}
+                    style={{ padding: 0, border: src === activeImage ? '2px solid var(--accent)' : '1px solid var(--line-dark)', borderRadius: '4px', background: 'none', cursor: 'pointer' }}
                   >
                     <img src={src} alt="" style={{ width: '64px', height: '48px', objectFit: 'cover', display: 'block', borderRadius: '3px' }} />
                   </button>
@@ -77,7 +77,7 @@ export default function ProductDetailModal({ product, onClose, onOpenQuote }) {
           {/* Technical Specs Table */}
           <div style={{ background: 'var(--paper)', border: '1px solid var(--line-dark)', padding: '16px', borderRadius: '4px', marginBottom: '20px' }}>
             <h4 style={{ fontSize: '14px', marginBottom: '12px', color: 'var(--navy-deep)', display: 'flex', alignItems: 'center', gap: '6px' }}>
-              <Cpu size={16} color="var(--teal)" /> Technical Specifications
+              <Cpu size={16} color="var(--accent)" /> Technical Specifications
             </h4>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', fontSize: '13.5px' }}>
               {product.shore_hardness && (
@@ -120,7 +120,7 @@ export default function ProductDetailModal({ product, onClose, onOpenQuote }) {
           </a>
           <button 
             type="button" 
-            className="btn btn-orange btn-sm"
+            className="btn btn-primary btn-sm"
             onClick={() => {
               onClose();
               onOpenQuote(product);

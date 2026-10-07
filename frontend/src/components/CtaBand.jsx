@@ -14,13 +14,13 @@ export default function CtaBand({ siteInfo, onOpenQuote }) {
         <div className="cta-actions">
           <a 
             href={`https://wa.me/${settings.whatsapp_number || '919924314732'}`} 
-            className="btn btn-orange"
+            className="btn btn-primary"
             target="_blank" 
             rel="noopener noreferrer"
           >
             <MessageSquare size={16} /> WhatsApp
           </a>
-          <a href={`tel:${settings.primary_phone || '+919924314732'}`} className="btn btn-teal">
+          <a href={`tel:${settings.primary_phone || '+919924314732'}`} className="btn btn-secondary">
             <Phone size={16} /> Call Us
           </a>
           <button 

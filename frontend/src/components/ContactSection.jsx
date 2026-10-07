@@ -147,7 +147,7 @@ export default function ContactSection({ siteInfo, onToast }) {
 
                 <button 
                   type="submit" 
-                  className="btn btn-orange"
+                  className="btn btn-primary"
                   disabled={loading}
                 >
                   <Send size={15} /> {loading ? 'Sending...' : 'Send Message'}
@@ -185,7 +185,7 @@ export default function ContactSection({ siteInfo, onToast }) {
               </li>
               <li>
                 <Mail size={18} />
-                <a href={`mailto:${settings.contact_email || 'shreedipeshwariengg@gmail.com'}`} style={{ color: 'var(--teal-bright)' }}>
+                <a href={`mailto:${settings.contact_email || 'shreedipeshwariengg@gmail.com'}`} style={{ color: 'var(--accent-bright)' }}>
                   {settings.contact_email || 'shreedipeshwariengg@gmail.com'}
                 </a>
               </li>

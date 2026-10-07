@@ -26,7 +26,7 @@ export default function Footer({ siteInfo, onOpenAdmin }) {
           <h4>Contact Information</h4>
           <ul>
             <li style={{ display: 'flex', gap: '8px' }}>
-              <MapPin size={16} style={{ flexShrink: 0, marginTop: '4px', color: 'var(--teal-bright)' }} />
+              <MapPin size={16} style={{ flexShrink: 0, marginTop: '4px', color: 'var(--accent-bright)' }} />
               <span>{settings.company_address || 'Kalali Village Road, Vadodara – 390012, Gujarat'}</span>
             </li>
             <li>

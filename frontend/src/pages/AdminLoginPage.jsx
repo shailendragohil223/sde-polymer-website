@@ -93,7 +93,7 @@ export default function AdminLoginPage({ onToast, onLoginSuccess }) {
 
           <button 
             type="submit" 
-            className="btn btn-orange" 
+            className="btn btn-primary" 
             style={{ width: '100%', marginTop: '8px', padding: '13px' }}
             disabled={loading}
           >

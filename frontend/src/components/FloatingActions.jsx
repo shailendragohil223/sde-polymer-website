@@ -24,7 +24,7 @@ export default function FloatingActions({ siteInfo, onOpenQuote }) {
         <button 
           type="button" 
           onClick={() => onOpenQuote()} 
-          className="btn btn-orange"
+          className="btn btn-primary"
         >
           <FileText size={16} /> Request a Quote
         </button>
