@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import { Lock, User, Key, ArrowRight, ShieldCheck, AlertCircle, ArrowLeft } from 'lucide-react';
+import { Lock, User, Key, ArrowRight, AlertCircle, ArrowLeft } from 'lucide-react';
 import { adminLogin } from '../services/api';
 
 export default function AdminLoginPage({ onToast, onLoginSuccess }) {
@@ -42,9 +42,7 @@ export default function AdminLoginPage({ onToast, onLoginSuccess }) {
     <div className="admin-login-wrapper">
       <div className="admin-login-card">
         <div style={{ textAlign: 'center', marginBottom: '28px' }}>
-          <div className="admin-login-icon">
-            <ShieldCheck size={36} color="#14b3ae" />
-          </div>
+          <img src="/logo/sde-logo.svg" alt="SDE logo" className="admin-login-logo" />
           <h2 style={{ fontSize: '24px', color: 'var(--navy-deep)', marginBottom: '6px' }}>
             Admin Portal Login
           </h2>

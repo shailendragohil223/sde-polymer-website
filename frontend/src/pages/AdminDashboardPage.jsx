@@ -176,11 +176,8 @@ export default function AdminDashboardPage({ onToast }) {
       <header className="admin-header-bar">
         <div className="admin-header-inner">
           <div className="admin-header-left">
-            <span className="brand-mark" style={{ width: '32px', height: '32px' }}>
-              <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path fill="#14b3ae" d="M50 6l6 10 11-4 3 12 12-1 -1 12 12 3-4 11 10 6-10 6 4 11-12 3 1 12-12-1-3 12-11-4-6 10-6-10-11 4-3-12-12 1 1-12-12-3 4-11-10-6 10-6-4-11 12-3-1-12 12 1 3-12 11 4z"/>
-                <circle cx="50" cy="50" r="20" fill="#071a30"/>
-              </svg>
+            <span className="brand-mark" style={{ width: '42px', height: 'auto' }}>
+              <img src="/logo/sde-logo-white.svg" alt="SDE logo" />
             </span>
             <div>
               <h3 style={{ fontSize: '16px', color: 'var(--white)', letterSpacing: '0.02em' }}>
