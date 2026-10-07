@@ -6,7 +6,7 @@
   --steel: #5b6b7d;
   --steel-light: #8fa0b5;
   /* Brand palette derived from the SDE logo blue (#0E54A0) */
-  --accent: #1f6fc2;
+  --accent: #1a62ad;
   --accent-bright: #5aa9f5;
   --accent-glow: rgba(90, 169, 245, 0.25);
   --paper: #f3f5f7;
@@ -36,6 +36,11 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: clip;
+}
+
+body.menu-open {
+  overflow: hidden;
 }
 
 body {
@@ -203,8 +208,15 @@ header {
   top: 0;
   z-index: 100;
   background: rgba(7, 26, 48, 0.96);
-  backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--line);
+}
+
+header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  backdrop-filter: blur(12px);
 }
 
 .nav-inner {
@@ -269,6 +281,7 @@ nav.links {
 }
 
 nav.links a {
+  padding: 10px 0;
   color: rgba(255, 255, 255, 0.76);
   font-size: 14.5px;
   font-weight: 500;
@@ -313,7 +326,11 @@ nav.links a.active {
   background: none;
   border: none;
   color: var(--white);
-  font-size: 24px;
+  width: 44px;
+  height: 44px;
+  margin-right: -10px;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
 }
 
@@ -614,10 +631,11 @@ nav.links a.active {
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.15);
   color: rgba(255, 255, 255, 0.75);
-  padding: 6px 14px;
+  padding: 9px 16px;
   border-radius: 20px;
   font-size: 13px;
   font-family: 'JetBrains Mono', monospace;
+  white-space: nowrap;
   cursor: pointer;
   transition: var(--transition);
 }
@@ -642,6 +660,12 @@ nav.links a.active {
 }
 
 .cat-card {
+  display: block;
+  width: 100%;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+  border: none;
   background: var(--navy);
   padding: 28px 24px;
   transition: background 0.25s ease, transform 0.25s ease;
@@ -651,6 +675,22 @@ nav.links a.active {
 
 .cat-card:hover {
   background: var(--navy-mid);
+}
+
+.cat-card-cta {
+  background: var(--brand);
+}
+
+.cat-card-cta:hover {
+  background: var(--brand-hover);
+}
+
+.cat-card.cat-card-cta .num {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.cat-card.cat-card-cta p {
+  color: rgba(255, 255, 255, 0.85);
 }
 
 .cat-card .num {
@@ -811,6 +851,7 @@ nav.links a.active {
 
 .prod-card .prod-img {
   width: calc(100% + 48px);
+  max-width: none;
   margin: -28px -24px 18px;
   aspect-ratio: 4 / 3;
   object-fit: cover;
@@ -818,6 +859,23 @@ nav.links a.active {
   background: var(--paper);
   border-bottom: 1px solid var(--line-dark);
   border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+}
+
+.prod-card .prod-img-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.prod-img-placeholder img {
+  width: 34%;
+  opacity: 0.35;
+}
+
+.load-more {
+  display: flex;
+  justify-content: center;
+  margin-top: 36px;
 }
 
 .prod-card:hover {
@@ -1070,6 +1128,11 @@ nav.links a.active {
   line-height: 1.6;
 }
 
+.contact-info-list a {
+  display: inline-block;
+  padding: 6px 0;
+}
+
 .contact-info-list li svg {
   color: var(--accent-bright);
   flex-shrink: 0;
@@ -1116,6 +1179,11 @@ footer {
   margin-bottom: 10px;
 }
 
+.footer-grid a {
+  display: inline-block;
+  padding: 4px 0;
+}
+
 .footer-grid a:hover {
   color: var(--accent-bright);
 }
@@ -1135,7 +1203,7 @@ footer {
   flex-wrap: wrap;
   gap: 12px;
   font-size: 13px;
-  color: rgba(255, 255, 255, 0.45);
+  color: rgba(255, 255, 255, 0.6);
 }
 
 /* ================= FLOATING BUTTONS ================= */
@@ -1165,6 +1233,7 @@ footer {
   left: 24px;
   bottom: 24px;
   z-index: 200;
+  display: none;
 }
 
 /* ================= MODAL & DRAWERS ================= */
@@ -1297,6 +1366,7 @@ footer {
 }
 
 .admin-table th {
+  white-space: nowrap;
   background: var(--paper-dim);
   font-family: 'JetBrains Mono', monospace;
   font-size: 12px;
@@ -1371,35 +1441,76 @@ footer {
   .process-row { grid-template-columns: repeat(3, 1fr); }
   
   nav.links {
-    position: fixed;
-    top: 72px;
+    position: absolute;
+    top: 100%;
     left: 0;
     right: 0;
-    bottom: 0;
+    height: 100vh;
+    height: 100dvh;
     background: var(--navy-deep);
+    border-top: 1px solid var(--line);
     flex-direction: column;
-    align-items: flex-start;
-    padding: 32px 24px;
-    gap: 24px;
-    transform: translateX(100%);
-    transition: transform 0.25s ease;
+    align-items: stretch;
+    padding: 12px 24px 120px;
+    gap: 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
     z-index: 100;
   }
-  
-  nav.links.open { transform: translateX(0); }
-  .menu-toggle { display: block; }
+
+  nav.links a {
+    font-size: 17px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  nav.links.open {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+  }
+
+  .menu-toggle { display: inline-flex; }
+  .sticky-quote { display: block; }
   .header-cta .btn-ghost { display: none; }
 }
 
 @media (max-width: 640px) {
+  body { padding-bottom: 56px; }
+  .nav-inner { padding: 12px 16px; }
+  .brand-mark { width: 44px; }
+  .brand-text .name { font-size: 15px; }
+  .brand-text .tag { display: none; }
+  .header-quote-btn { display: none; }
+  .hero { padding: 64px 0 56px; }
+  .hero-actions .btn { flex: 1 1 100%; }
+  .hero-strip .stat:nth-child(2n) { border-right: none; }
+  .gear-cluster { max-width: 300px; margin: 0 auto; }
+  .category-filter-chips {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    scrollbar-width: none;
+  }
+  .category-filter-chips::-webkit-scrollbar { display: none; }
+  .cat-grid { grid-template-columns: repeat(2, 1fr); }
+  .cat-card { padding: 18px 16px; }
+  .cat-card h4 { font-size: 15px; }
+  .cat-card p { display: none; }
   .hero-strip { grid-template-columns: repeat(2, 1fr); }
-  .cat-grid { grid-template-columns: 1fr; }
   .ind-grid { grid-template-columns: repeat(2, 1fr); }
   .why-grid { grid-template-columns: 1fr; }
   .prod-grid { grid-template-columns: 1fr; }
   .feature-list { grid-template-columns: 1fr; }
   .process-row { grid-template-columns: 1fr; }
-  .admin-kpi-grid { grid-template-columns: 1fr; }
+  .admin-kpi-grid { grid-template-columns: repeat(2, 1fr); }
+  .admin-header-inner { flex-direction: column; align-items: stretch; gap: 14px; padding: 0 16px; }
+  .admin-header-right { gap: 8px; }
+  .admin-header-right .btn { flex: 1 1 auto; }
+  .admin-tabs { overflow-x: auto; flex-wrap: nowrap; }
+  .admin-tab-btn { white-space: nowrap; }
   .form-row { grid-template-columns: 1fr; }
   
   .sticky-quote {
