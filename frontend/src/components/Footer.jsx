@@ -10,10 +10,7 @@ export default function Footer({ siteInfo, onOpenAdmin }) {
         <div>
           <div className="brand">
             <span className="brand-mark">
-              <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path fill="#14b3ae" d="M50 6l6 10 11-4 3 12 12-1 -1 12 12 3-4 11 10 6-10 6 4 11-12 3 1 12-12-1-3 12-11-4-6 10-6-10-11 4-3-12-12 1 1-12-12-3 4-11-10-6 10-6-4-11 12-3-1-12 12 1 3-12 11 4z"/>
-                <circle cx="50" cy="50" r="20" fill="#071a30"/>
-              </svg>
+              <img src="/logo/sde-logo-white.svg" alt="SDE logo" />
             </span>
             <span className="brand-text">
               <span className="name">{settings.site_name || 'Shree Dipeshwari Engineering'}</span>

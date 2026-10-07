@@ -222,9 +222,22 @@ header {
 }
 
 .brand-mark {
-  width: 40px;
-  height: 40px;
+  width: 52px;
   flex-shrink: 0;
+  display: flex;
+}
+
+.brand-mark img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.admin-login-logo {
+  width: 96px;
+  height: auto;
+  margin: 0 auto 16px;
+  display: block;
 }
 
 .brand-text {
@@ -1439,17 +1452,6 @@ footer {
   padding: 40px 36px;
   position: relative;
   animation: scaleUp 0.25s ease;
-}
-
-.admin-login-icon {
-  width: 64px;
-  height: 64px;
-  background: var(--paper-dim);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 16px;
 }
 
 .admin-input-group {
