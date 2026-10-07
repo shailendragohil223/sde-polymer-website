@@ -17,8 +17,12 @@ export default function FeaturedProducts({ products, onSelectProduct, onOpenQuot
           {displayList.map(prod => (
             <div className="prod-card" key={prod.id}>
               <div>
-                {prod.image_url && (
+                {prod.image_url ? (
                   <img className="prod-img" src={prod.image_url} alt={prod.name} loading="lazy" />
+                ) : (
+                  <div className="prod-img prod-img-placeholder" aria-hidden="true">
+                    <img src="/logo/sde-logo.svg" alt="" />
+                  </div>
                 )}
                 <span className="tag">{prod.category_name || prod.category_code || 'Polymer'}</span>
                 <h4>{prod.name}</h4>

@@ -1,9 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Search, Filter, ArrowRight, FileText } from 'lucide-react';
+
+const PAGE_SIZE = 9;
 
 export default function ProductCatalog({ categories, products, onSelectProduct, onOpenQuote, onSelectCategory }) {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCatCode, setSelectedCatCode] = useState('ALL');
+  const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
+
+  // Start from the first page whenever the filter changes
+  useEffect(() => {
+    setVisibleCount(PAGE_SIZE);
+  }, [searchTerm, selectedCatCode]);
 
   const filteredCategories = categories.filter(cat => {
     if (searchTerm) {
@@ -41,7 +49,8 @@ export default function ProductCatalog({ categories, products, onSelectProduct, 
           <div className="catalog-search">
             <Search size={16} />
             <input 
-              type="text" 
+              type="search"
+              aria-label="Search products" 
               placeholder="Search products, materials (PTFE, NBR, PU), or shore hardness..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
@@ -70,7 +79,8 @@ export default function ProductCatalog({ categories, products, onSelectProduct, 
         {/* Categories Grid */}
         <div className="cat-grid">
           {filteredCategories.map((cat) => (
-            <div 
+            <button 
+              type="button"
               className="cat-card" 
               key={cat.id}
               onClick={() => {
@@ -82,61 +92,88 @@ export default function ProductCatalog({ categories, products, onSelectProduct, 
               <h4>{cat.name}</h4>
               <p>{cat.description}</p>
               <div style={{ marginTop: '14px', display: 'flex', alignItems: 'center', gap: '6px', color: 'var(--accent-bright)', fontSize: '12px', fontWeight: 600 }}>
-                <span>View Specifications</span> <ArrowRight size={13} />
+                <span>View Products</span> <ArrowRight size={13} />
               </div>
-            </div>
+            </button>
           ))}
+          {!searchTerm && (
+            <a href="#contact" className="cat-card cat-card-cta">
+              <div className="num">Custom</div>
+              <h4>Need a custom part?</h4>
+              <p>Send your drawing or sample and get a quotation within 24 hours.</p>
+              <div style={{ marginTop: '14px', display: 'flex', alignItems: 'center', gap: '6px', color: 'var(--white)', fontSize: '12px', fontWeight: 600 }}>
+                <span>Contact Engineering</span> <ArrowRight size={13} />
+              </div>
+            </a>
+          )}
         </div>
 
         {/* Products List */}
         <div id="product-list" style={{ marginTop: '56px', scrollMarginTop: '90px' }}>
-          <h3 style={{ fontSize: '22px', color: 'var(--navy-deep)', marginBottom: '24px' }}>
+          <h3 style={{ fontSize: '22px', color: 'var(--white)', marginBottom: '24px' }}>
             {selectedCatCode === 'ALL'
               ? 'All Products'
               : categories.find(c => c.code === selectedCatCode)?.name || 'Products'}{' '}
-            <span style={{ color: 'var(--steel)', fontWeight: 400 }}>({filteredProducts.length})</span>
+            <span style={{ color: 'var(--steel-light)', fontWeight: 400 }}>({filteredProducts.length})</span>
           </h3>
 
           {filteredProducts.length === 0 ? (
-            <p style={{ color: 'var(--steel)' }}>No products match your search.</p>
+            <p style={{ color: 'var(--steel-light)' }}>No products match your search.</p>
           ) : (
-            <div className="prod-grid">
-              {filteredProducts.map(prod => (
-                <div className="prod-card" key={prod.id}>
-                  <div>
-                    {prod.image_url && (
-                      <img className="prod-img" src={prod.image_url} alt={prod.name} loading="lazy" />
-                    )}
-                    <span className="tag">{prod.category_name || prod.category_code || 'Polymer'}</span>
-                    <h4>{prod.name}</h4>
-                    <p>{prod.short_desc}</p>
-                    <div className="meta">
-                      {prod.shore_hardness && <span>{prod.shore_hardness}</span>}
-                      {prod.temp_rating && <span>{prod.temp_rating}</span>}
+            <>
+              <div className="prod-grid">
+                {filteredProducts.slice(0, visibleCount).map(prod => (
+                  <div className="prod-card" key={prod.id}>
+                    <div>
+                      {prod.image_url ? (
+                        <img className="prod-img" src={prod.image_url} alt={prod.name} loading="lazy" />
+                      ) : (
+                        <div className="prod-img prod-img-placeholder" aria-hidden="true">
+                          <img src="/logo/sde-logo.svg" alt="" />
+                        </div>
+                      )}
+                      <span className="tag">{prod.category_name || prod.category_code || 'Polymer'}</span>
+                      <h4>{prod.name}</h4>
+                      <p>{prod.short_desc}</p>
+                      <div className="meta">
+                        {prod.shore_hardness && <span>{prod.shore_hardness}</span>}
+                        {prod.temp_rating && <span>{prod.temp_rating}</span>}
+                      </div>
                     </div>
-                  </div>
 
-                  <div className="prod-card-actions">
-                    <button
-                      type="button"
-                      className="btn btn-outline-navy btn-sm"
-                      onClick={() => onSelectProduct(prod)}
-                    >
-                      Tech Specs <ArrowRight size={13} />
-                    </button>
-                    {onOpenQuote && (
+                    <div className="prod-card-actions">
                       <button
                         type="button"
-                        className="btn btn-primary btn-sm"
-                        onClick={() => onOpenQuote(prod)}
+                        className="btn btn-outline-navy btn-sm"
+                        onClick={() => onSelectProduct(prod)}
                       >
-                        <FileText size={13} /> Quote
+                        Tech Specs <ArrowRight size={13} />
                       </button>
-                    )}
+                      {onOpenQuote && (
+                        <button
+                          type="button"
+                          className="btn btn-primary btn-sm"
+                          onClick={() => onOpenQuote(prod)}
+                        >
+                          <FileText size={13} /> Quote
+                        </button>
+                      )}
+                    </div>
                   </div>
+                ))}
+              </div>
+              {filteredProducts.length > visibleCount && (
+                <div className="load-more">
+                  <button
+                    type="button"
+                    className="btn btn-ghost"
+                    onClick={() => setVisibleCount(count => count + PAGE_SIZE)}
+                  >
+                    Show more products ({filteredProducts.length - visibleCount} more)
+                  </button>
                 </div>
-              ))}
-            </div>
+              )}
+            </>
           )}
         </div>
       </div>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { X, Send, Calculator, CheckCircle, AlertCircle } from 'lucide-react';
 import { submitQuoteRequest } from '../services/api';
+import useEscapeKey from '../hooks/useEscapeKey';
 
 export default function QuoteModal({ isOpen, onClose, selectedProduct, onToast }) {
   const [formData, setFormData] = useState({
@@ -29,6 +30,11 @@ export default function QuoteModal({ isOpen, onClose, selectedProduct, onToast }
       }));
     }
   }, [selectedProduct]);
+
+  useEscapeKey(isOpen, () => {
+    setSubmitted(false);
+    onClose();
+  });
 
   if (!isOpen) return null;
 
@@ -67,7 +73,7 @@ export default function QuoteModal({ isOpen, onClose, selectedProduct, onToast }
 
   return (
     <div className="modal-overlay" onClick={resetAndClose}>
-      <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+      <div className="modal-content" role="dialog" aria-modal="true" aria-label="Request engineering quotation" onClick={(e) => e.stopPropagation()}>
         <div className="modal-header">
           <div>
             <span className="eyebrow" style={{ marginBottom: '4px', fontSize: '11px' }}>
@@ -97,8 +103,9 @@ export default function QuoteModal({ isOpen, onClose, selectedProduct, onToast }
           <form onSubmit={handleSubmit}>
             <div className="form-row">
               <div className="form-group">
-                <label>Full Name *</label>
+                <label htmlFor="quote-name">Full Name *</label>
                 <input 
+                  id="quote-name"
                   type="text" 
                   name="name" 
                   className="form-input" 
@@ -109,8 +116,9 @@ export default function QuoteModal({ isOpen, onClose, selectedProduct, onToast }
                 />
               </div>
               <div className="form-group">
-                <label>Email Address *</label>
+                <label htmlFor="quote-email">Email Address *</label>
                 <input 
+                  id="quote-email"
                   type="email" 
                   name="email" 
                   className="form-input" 
@@ -124,8 +132,9 @@ export default function QuoteModal({ isOpen, onClose, selectedProduct, onToast }
 
             <div className="form-row">
               <div className="form-group">
-                <label>Phone / WhatsApp Number *</label>
+                <label htmlFor="quote-phone">Phone / WhatsApp Number *</label>
                 <input 
+                  id="quote-phone"
                   type="tel" 
                   name="phone" 
                   className="form-input" 
@@ -136,8 +145,9 @@ export default function QuoteModal({ isOpen, onClose, selectedProduct, onToast }
                 />
               </div>
               <div className="form-group">
-                <label>Company / Plant Name</label>
+                <label htmlFor="quote-company">Company / Plant Name</label>
                 <input 
+                  id="quote-company"
                   type="text" 
                   name="company" 
                   className="form-input" 
@@ -150,8 +160,9 @@ export default function QuoteModal({ isOpen, onClose, selectedProduct, onToast }
 
             <div className="form-row">
               <div className="form-group">
-                <label>Polymer / Elastomer Material</label>
+                <label htmlFor="quote-material">Polymer / Elastomer Material</label>
                 <select 
+                  id="quote-material"
                   name="material" 
                   className="form-select" 
                   value={formData.material} 
@@ -171,8 +182,9 @@ export default function QuoteModal({ isOpen, onClose, selectedProduct, onToast }
               </div>
 
               <div className="form-group">
-                <label>Shore Hardness / Durometer</label>
+                <label htmlFor="quote-shore-hardness">Shore Hardness / Durometer</label>
                 <select 
+                  id="quote-shore-hardness"
                   name="shore_hardness" 
                   className="form-select" 
                   value={formData.shore_hardness} 
@@ -190,8 +202,9 @@ export default function QuoteModal({ isOpen, onClose, selectedProduct, onToast }
 
             <div className="form-row">
               <div className="form-group">
-                <label>Estimated Quantity (Nos / Meters / Sets)</label>
+                <label htmlFor="quote-quantity">Estimated Quantity (Nos / Meters / Sets)</label>
                 <input 
+                  id="quote-quantity"
                   type="text" 
                   name="quantity" 
                   className="form-input" 
@@ -201,8 +214,9 @@ export default function QuoteModal({ isOpen, onClose, selectedProduct, onToast }
                 />
               </div>
               <div className="form-group">
-                <label>Target Working Temperature &amp; Medium</label>
+                <label htmlFor="quote-application-details">Target Working Temperature &amp; Medium</label>
                 <input 
+                  id="quote-application-details"
                   type="text" 
                   name="application_details" 
                   className="form-input" 
@@ -214,8 +228,9 @@ export default function QuoteModal({ isOpen, onClose, selectedProduct, onToast }
             </div>
 
             <div className="form-group">
-              <label>Drawing Details / Custom Spec Notes</label>
+              <label htmlFor="quote-drawing-notes">Drawing Details / Custom Spec Notes</label>
               <textarea 
+                id="quote-drawing-notes"
                 name="drawing_notes" 
                 rows="3" 
                 className="form-textarea" 

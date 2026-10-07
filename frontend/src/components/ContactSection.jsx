@@ -82,8 +82,9 @@ export default function ContactSection({ siteInfo, onToast }) {
               <form onSubmit={handleSubmit}>
                 <div className="form-row">
                   <div className="form-group">
-                    <label>Full Name *</label>
+                    <label htmlFor="contact-name">Full Name *</label>
                     <input 
+                      id="contact-name"
                       type="text" 
                       name="name" 
                       className="form-input" 
@@ -94,8 +95,9 @@ export default function ContactSection({ siteInfo, onToast }) {
                     />
                   </div>
                   <div className="form-group">
-                    <label>Email Address *</label>
+                    <label htmlFor="contact-email">Email Address *</label>
                     <input 
+                      id="contact-email"
                       type="email" 
                       name="email" 
                       className="form-input" 
@@ -109,8 +111,9 @@ export default function ContactSection({ siteInfo, onToast }) {
 
                 <div className="form-row">
                   <div className="form-group">
-                    <label>Phone Number</label>
+                    <label htmlFor="contact-phone">Phone Number</label>
                     <input 
+                      id="contact-phone"
                       type="tel" 
                       name="phone" 
                       className="form-input" 
@@ -120,8 +123,9 @@ export default function ContactSection({ siteInfo, onToast }) {
                     />
                   </div>
                   <div className="form-group">
-                    <label>Subject / Product Line</label>
+                    <label htmlFor="contact-subject">Subject / Product Line</label>
                     <input 
+                      id="contact-subject"
                       type="text" 
                       name="subject" 
                       className="form-input" 
@@ -133,8 +137,9 @@ export default function ContactSection({ siteInfo, onToast }) {
                 </div>
 
                 <div className="form-group">
-                  <label>Message / Requirement Details *</label>
+                  <label htmlFor="contact-message">Message / Requirement Details *</label>
                   <textarea 
+                    id="contact-message"
                     name="message" 
                     rows="4" 
                     className="form-textarea" 

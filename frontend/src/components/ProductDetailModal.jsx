@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { X, CheckCircle2, ShieldAlert, Cpu, FileText, Phone } from 'lucide-react';
+import useEscapeKey from '../hooks/useEscapeKey';
 
 // gallery_images arrives as a JSON string from MySQL, or an array in in-memory mode
 const parseGallery = (gallery) => {
@@ -20,13 +21,15 @@ export default function ProductDetailModal({ product, onClose, onOpenQuote }) {
     setActiveImage(product?.image_url || null);
   }, [product]);
 
+  useEscapeKey(!!product, onClose);
+
   if (!product) return null;
 
   const images = [product.image_url, ...parseGallery(product.gallery_images)].filter(Boolean);
 
   return (
     <div className="modal-overlay" onClick={onClose}>
-      <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+      <div className="modal-content" role="dialog" aria-modal="true" aria-label={product.name} onClick={(e) => e.stopPropagation()}>
         <div className="modal-header">
           <div>
             <span className="eyebrow" style={{ marginBottom: '4px', fontSize: '11px' }}>

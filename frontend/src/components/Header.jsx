@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Phone, FileText, Menu, X } from 'lucide-react';
+import useEscapeKey from '../hooks/useEscapeKey';
 
 export default function Header({ siteInfo, onOpenQuote }) {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -8,6 +9,14 @@ export default function Header({ siteInfo, onOpenQuote }) {
   const handleNavClick = () => {
     setMobileOpen(false);
   };
+
+  useEscapeKey(mobileOpen, handleNavClick);
+
+  // Keep the page behind the open mobile menu from scrolling
+  useEffect(() => {
+    document.body.classList.toggle('menu-open', mobileOpen);
+    return () => document.body.classList.remove('menu-open');
+  }, [mobileOpen]);
 
   return (
     <header>
@@ -38,14 +47,16 @@ export default function Header({ siteInfo, onOpenQuote }) {
           <button 
             type="button" 
             onClick={() => onOpenQuote()} 
-            className="btn btn-primary btn-sm"
+            className="btn btn-primary btn-sm header-quote-btn"
           >
             <FileText size={14} /> Request Quote
           </button>
           <button 
             className="menu-toggle" 
             onClick={() => setMobileOpen(!mobileOpen)} 
-            aria-label="Toggle navigation menu"
+            aria-label={mobileOpen ? 'Close navigation menu' : 'Open navigation menu'}
+            aria-expanded={mobileOpen}
+            aria-controls="navLinks"
           >
             {mobileOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
