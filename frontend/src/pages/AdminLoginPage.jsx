@@ -21,7 +21,7 @@ export default function AdminLoginPage({ onToast, onLoginSuccess }) {
 
     setLoading(true);
     try {
-      const res = await adminLogin({ username, password });
+      const res = await adminLogin({ username: username.trim(), password });
       if (res.success) {
         if (onToast) onToast(`Welcome back, ${res.user?.name || 'Administrator'}!`, 'success');
         if (onLoginSuccess) onLoginSuccess(res.user);
@@ -60,13 +60,17 @@ export default function AdminLoginPage({ onToast, onLoginSuccess }) {
 
         <form onSubmit={handleLogin}>
           <div className="form-group">
-            <label>Username or Admin Email</label>
+            <label htmlFor="admin-username">Username or Admin Email</label>
             <div className="admin-input-group">
               <User size={16} />
               <input 
+                id="admin-username"
                 type="text" 
                 className="form-input" 
                 placeholder="e.g. admin" 
+                autoCapitalize="none"
+                autoCorrect="off"
+                spellCheck={false}
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
                 autoComplete="username"
@@ -76,10 +80,11 @@ export default function AdminLoginPage({ onToast, onLoginSuccess }) {
           </div>
 
           <div className="form-group">
-            <label>Password</label>
+            <label htmlFor="admin-password">Password</label>
             <div className="admin-input-group">
               <Key size={16} />
               <input 
+                id="admin-password"
                 type="password" 
                 className="form-input" 
                 placeholder="••••••••" 
@@ -104,8 +109,7 @@ export default function AdminLoginPage({ onToast, onLoginSuccess }) {
 
         <div className="admin-login-footer">
           <div className="admin-credentials-hint">
-            <strong>Default Access Credentials:</strong><br />
-            Username: <code className="mono">admin</code> &nbsp;|&nbsp; Password: <code className="mono">admin123</code>
+            Use the admin username and the password set as <code className="mono">ADMIN_PASSWORD</code> on the server.
           </div>
 
           <Link to="/" className="admin-back-link">

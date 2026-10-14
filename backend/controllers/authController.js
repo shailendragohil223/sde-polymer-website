@@ -9,7 +9,9 @@ const DEFAULT_ADMIN_EMAIL = process.env.ADMIN_EMAIL || 'admin@sdepolymer.com';
 
 exports.login = async (req, res) => {
   try {
-    const { username, password } = req.body;
+    const { password } = req.body;
+    // Phones often auto-capitalise or add a trailing space to the username
+    const username = (req.body.username || '').trim().toLowerCase();
 
     if (!username || !password) {
       return res.status(400).json({
@@ -31,7 +33,7 @@ exports.login = async (req, res) => {
       mock.adminUsers = adminUsers;
 
       const user = adminUsers.find(
-        u => u.username === username || u.email === username
+        u => u.username.toLowerCase() === username || u.email.toLowerCase() === username
       );
 
       if (!user) {
@@ -77,7 +79,7 @@ exports.login = async (req, res) => {
 
     if (rows.length === 0) {
       // Fallback check against default env if DB table empty
-      if ((username === DEFAULT_ADMIN_USERNAME || username === DEFAULT_ADMIN_EMAIL) && password === DEFAULT_ADMIN_PASSWORD) {
+      if ((username === DEFAULT_ADMIN_USERNAME.toLowerCase() || username === DEFAULT_ADMIN_EMAIL.toLowerCase()) && password === DEFAULT_ADMIN_PASSWORD) {
         const token = jwt.sign(
           { id: 1, username: DEFAULT_ADMIN_USERNAME, role: 'superadmin' },
           JWT_SECRET,
