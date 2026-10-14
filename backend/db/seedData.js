@@ -2,9 +2,7 @@ const initialData = {
   siteSettings: [
     { setting_key: 'site_name', setting_value: 'Shree Dipeshwari Engineering', setting_group: 'general' },
     { setting_key: 'tagline', setting_value: 'Complete Polymer Solution', setting_group: 'general' },
-    { setting_key: 'hero_eyebrow', setting_value: 'Vadodara, Gujarat · Manufacturer', setting_group: 'hero' },
     { setting_key: 'hero_title', setting_value: 'Precision Industrial Sealing & Engineering Polymer Solutions', setting_group: 'hero' },
-    { setting_key: 'hero_lead', setting_value: 'Manufacturer of Rubber Moulded Parts, O-Rings, Oil Seals, PTFE, PU, Nylon & Silicone components — engineered to your drawing, in any shore hardness, for mining, cement, pharma, chemical and heavy engineering industries.', setting_group: 'hero' },
     { setting_key: 'about_eyebrow', setting_value: 'About SDE', setting_group: 'about' },
     { setting_key: 'about_title', setting_value: 'Two decades of polymer engineering, built on custom manufacturing.', setting_group: 'about' },
     { setting_key: 'about_text', setting_value: 'Shree Dipeshwari Engineering manufactures and supplies high-performance polyurethane, rubber, PTFE, nylon and silicone components for industrial applications across India and international markets. From 25A to 95A shore hardness, from vacuum bellows to 1400°C fireproof high-temperature bellows — every part is engineered to your size, shape, colour and specification.', setting_group: 'about' },

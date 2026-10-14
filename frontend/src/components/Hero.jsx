@@ -1,5 +1,17 @@
-import React from 'react';
-import { Phone, Mail, FileDown } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Phone, Mail, FileDown, CheckCircle2 } from 'lucide-react';
+
+// Product lines shown in the hero list and photo slideshow
+const PRODUCT_LINES = [
+  { name: 'Rubber Moulded Parts', image: '/uploads/products/custom-moulded-rubber-parts.jpg' },
+  { name: 'PTFE Products', image: '/uploads/products/ptfe-machined-components.jpg' },
+  { name: 'PU Products', image: '/uploads/products/pu-wheels-assortment.jpg' },
+  { name: 'Nylon Products', image: '/uploads/products/nylon-engineering-plastics.jpg' },
+  { name: 'Hydraulic & Pneumatic Cylinder Seals', image: '/uploads/products/hydraulic-seal-kit.jpg' },
+  { name: 'Custom Engineering Polymer Products', image: '/uploads/products/rubber-moulded-parts-assortment.jpg' }
+];
+
+const SLIDE_INTERVAL_MS = 3500;
 
 export default function Hero({ siteInfo, onOpenQuote }) {
   const settings = siteInfo?.settings || {};
@@ -10,19 +22,41 @@ export default function Hero({ siteInfo, onOpenQuote }) {
     { num: '2 Decades', lbl: 'Trusted Manufacturing' }
   ];
 
+  const [activeSlide, setActiveSlide] = useState(0);
+  const [paused, setPaused] = useState(false);
+
+  // Restarts on every slide change, so a manual pick stays up for a full interval
+  useEffect(() => {
+    if (paused) return undefined;
+    const timer = setTimeout(() => {
+      setActiveSlide(i => (i + 1) % PRODUCT_LINES.length);
+    }, SLIDE_INTERVAL_MS);
+    return () => clearTimeout(timer);
+  }, [paused, activeSlide]);
+
   return (
     <section className="hero" id="home">
       <div className="wrap hero-inner">
-        <div>
-          <div className="eyebrow">
-            {settings.hero_eyebrow || 'Vadodara, Gujarat · Manufacturer'}
-          </div>
-          <h1>
-            Precision Industrial Sealing &amp; <span>Engineering Polymer</span> Solutions
-          </h1>
-          <p className="lead">
-            {settings.hero_lead || 'Manufacturer of Rubber Moulded Parts, O-Rings, Oil Seals, PTFE, PU, Nylon & Silicone components — engineered to your drawing, in any shore hardness, for mining, cement, pharma, chemical and heavy engineering industries.'}
-          </p>
+        <h1 className="hero-title">
+          Precision Industrial Sealing &amp; <span>Engineering Polymer</span> Solutions
+        </h1>
+
+        <ul className="hero-products">
+          {PRODUCT_LINES.map((line, idx) => (
+            <li key={line.name}>
+              <button
+                type="button"
+                className={idx === activeSlide ? 'active' : ''}
+                onClick={() => setActiveSlide(idx)}
+                aria-pressed={idx === activeSlide}
+              >
+                <CheckCircle2 size={16} /> {line.name}
+              </button>
+            </li>
+          ))}
+        </ul>
+
+        <div className="hero-cta-block">
           <div className="hero-actions">
             <a href={`tel:${settings.primary_phone || '+919924314732'}`} className="btn btn-primary">
               <Phone size={16} /> Call Now
@@ -49,25 +83,35 @@ export default function Hero({ siteInfo, onOpenQuote }) {
           </div>
         </div>
 
-        <div className="gear-cluster" role="img" aria-label="SDE logo">
-          <svg viewBox="0 0 400 400">
-            <g className="gear-big">
-              <path 
-                fill="none" 
-                stroke="#5aa9f5" 
-                strokeWidth="1.6" 
-                opacity="0.65"
-                d="M332.0 200.0 L355.6 211.0 L353.9 225.6 L328.4 230.8 L322.0 250.5 L339.5 269.7 L332.4 282.6 L306.8 277.6 L293.3 293.3 L302.2 317.8 L290.7 326.9 L269.0 312.5 L250.5 322.0 L249.4 348.0 L235.2 352.0 L220.6 330.4 L200.0 332.0 L189.0 355.6 L174.4 353.9 L169.2 328.4 L149.5 322.0 L130.3 339.5 L117.4 332.4 L122.4 306.8 L106.7 293.3 L82.2 302.2 L73.1 290.7 L87.5 269.0 L78.0 250.5 L52.0 249.4 L48.0 235.2 L69.6 220.6 L68.0 200.0 L44.4 189.0 L46.1 174.4 L71.6 169.2 L78.0 149.5 L60.5 130.3 L67.6 117.4 L93.2 122.4 L106.7 106.7 L97.8 82.2 L109.3 73.1 L131.0 87.5 L149.5 78.0 L150.6 52.0 L164.8 48.0 L179.4 69.6 L200.0 68.0 L211.0 44.4 L225.6 46.1 L230.8 71.6 L250.5 78.0 L269.7 60.5 L282.6 67.6 L277.6 93.2 L293.3 106.7 L317.8 97.8 L326.9 109.3 L312.5 131.0 L322.0 149.5 L348.0 150.6 L352.0 164.8 L330.4 179.4Z"
+        <div
+          className="hero-slideshow"
+          onMouseEnter={() => setPaused(true)}
+          onMouseLeave={() => setPaused(false)}
+          aria-roledescription="carousel"
+          aria-label="Our products"
+        >
+          {PRODUCT_LINES.map((line, idx) => (
+            <figure
+              key={line.name}
+              className={`hero-slide ${idx === activeSlide ? 'active' : ''}`}
+              aria-hidden={idx !== activeSlide}
+            >
+              <img src={line.image} alt={line.name} decoding="async" />
+              <figcaption>{line.name}</figcaption>
+            </figure>
+          ))}
+          <img className="hero-slideshow-logo" src="/logo/sde-logo.svg" alt="" aria-hidden="true" />
+          <div className="hero-slide-dots">
+            {PRODUCT_LINES.map((line, idx) => (
+              <button
+                key={line.name}
+                type="button"
+                className={idx === activeSlide ? 'active' : ''}
+                onClick={() => setActiveSlide(idx)}
+                aria-label={`Show ${line.name}`}
               />
-              <circle cx="200" cy="200" r="118" fill="none" stroke="#5aa9f5" strokeWidth="1.2" opacity="0.4" strokeDasharray="4 6" />
-            </g>
-            <circle className="hero-logo-disc" cx="200" cy="200" r="96" />
-            <image
-              href="/logo/sde-logo.svg"
-              x="128" y="142" width="144" height="116"
-              preserveAspectRatio="xMidYMid meet"
-            />
-          </svg>
+            ))}
+          </div>
         </div>
       </div>
     </section>
