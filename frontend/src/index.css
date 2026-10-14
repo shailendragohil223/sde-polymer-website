@@ -796,6 +796,11 @@ nav.links a.active {
   background: var(--brand-hover);
 }
 
+/* When the CTA card would sit alone in the last row, stretch it across */
+.cat-grid > .cat-card-cta:nth-child(4n+1) {
+  grid-column: 1 / -1;
+}
+
 .cat-card.cat-card-cta .num {
   color: rgba(255, 255, 255, 0.85);
 }
@@ -1549,6 +1554,8 @@ footer {
   .about-grid { grid-template-columns: 1fr; }
   .why-grid { grid-template-columns: repeat(2, 1fr); }
   .cat-grid { grid-template-columns: repeat(2, 1fr); }
+  .cat-grid > .cat-card-cta:nth-child(4n+1) { grid-column: auto; }
+  .cat-grid > .cat-card-cta:nth-child(2n+1) { grid-column: 1 / -1; }
   .ind-grid { grid-template-columns: repeat(3, 1fr); }
   .prod-grid { grid-template-columns: repeat(2, 1fr); }
   .app-grid { grid-template-columns: repeat(2, 1fr); }

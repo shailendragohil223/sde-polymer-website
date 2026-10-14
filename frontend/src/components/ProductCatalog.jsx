@@ -40,7 +40,7 @@ export default function ProductCatalog({ categories, products, onSelectProduct, 
             <h2>Everything you need, one polymer partner.</h2>
           </div>
           <p>
-            From standard O-rings to fireproof bellows rated to 1400°C — manufactured in-house across eleven product families.
+            From standard O-rings to fireproof bellows rated to 1400°C — manufactured in-house across twelve product families.
           </p>
         </div>
 

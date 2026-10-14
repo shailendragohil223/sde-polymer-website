@@ -44,7 +44,8 @@ const initialData = {
     { code: 'P-08', name: 'Bellows', description: 'Rubber, PTFE, silicone & high-temperature expansion bellows.', order_index: 8 },
     { code: 'P-09', name: 'Gaskets', description: 'FFKM, Viton, Silicone, Neoprene, EPDM & PTFE grades.', order_index: 9 },
     { code: 'P-10', name: 'Custom Rubber Moulding', description: 'Diaphragms, bush & stoppers, seals, washers, import substitutes.', order_index: 10 },
-    { code: 'P-11', name: 'Service & Assortment Kits', description: 'O-ring service kits, internal & external circlip assortment boxes for maintenance stores.', order_index: 11 }
+    { code: 'P-11', name: 'Service & Assortment Kits', description: 'O-ring service kits, internal & external circlip assortment boxes for maintenance stores.', order_index: 11 },
+    { code: 'P-12', name: 'Rubber Rollers', description: 'PU and rubber covered rollers, new and re-coated on your existing shafts.', order_index: 12 }
   ],
 
   products: [
@@ -371,12 +372,12 @@ const initialData = {
     },
     {
       category_code: 'P-08',
-      name: 'Round Rubber Bellows & Boots',
+      name: 'Flexible Fabric Bellow',
       slug: 'round-rubber-bellows',
       image_url: '/uploads/products/round-rubber-bellows.jpg',
-      subtitle: 'Moulded convoluted dust boots for shafts and rods',
-      short_desc: 'Moulded round rubber bellows and dust boots protecting piston rods, shafts and joints from dirt and moisture.',
-      full_desc: 'Convoluted rubber bellows and gaiters moulded in Neoprene, NBR, EPDM or Silicone. They seal moving shafts, piston rods, steering and drive joints, accommodating axial travel and angular movement while keeping contaminants out.',
+      subtitle: 'Flexible fabric bellows for shafts, rods and joints',
+      short_desc: 'Flexible fabric bellows protecting piston rods, shafts and joints from dirt and moisture.',
+      full_desc: 'Flexible fabric bellows made in Neoprene, NBR, EPDM or Silicone. They seal moving shafts, piston rods, steering and drive joints, accommodating axial travel and angular movement while keeping contaminants out.',
       material_grades: 'Neoprene, NBR, EPDM, Silicone',
       shore_hardness: '50A–70A Shore',
       temp_rating: '-40°C to +150°C',
@@ -389,8 +390,8 @@ const initialData = {
       category_code: 'P-08',
       name: 'Rubber Expansion Joints',
       slug: 'rubber-expansion-joints',
-      image_url: '/uploads/products/rubber-expansion-joint.jpg',
-      gallery_images: ['/uploads/products/rubber-expansion-joint-2.jpg', '/uploads/products/rubber-expansion-joint-3.jpg'],
+      image_url: '/uploads/products/rubber-expansion-joint-flanged.jpg',
+      gallery_images: ['/uploads/products/rubber-expansion-joint.jpg', '/uploads/products/rubber-expansion-joint-2.jpg', '/uploads/products/rubber-expansion-joint-3.jpg'],
       subtitle: 'Flanged single & double arch pipeline bellows',
       short_desc: 'Fabric-reinforced rubber expansion joints with MS/SS flanges to absorb pipeline movement, vibration and misalignment.',
       full_desc: 'Single-sphere and double-arch rubber expansion joints built with nylon tyre-cord reinforcement and backed by galvanised MS or SS flanges. They absorb thermal expansion, pump vibration and pipe misalignment, and reduce noise transmission in water, slurry and chemical pipelines.',
@@ -546,6 +547,38 @@ const initialData = {
       features: '13 sizes (8–34 mm), 30 nos per size, labelled compartments',
       is_featured: false,
       order_index: 31
+    },
+    {
+      category_code: 'P-12',
+      name: 'PU Rollers',
+      slug: 'pu-rollers',
+      image_url: '/uploads/products/pu-rollers.jpg',
+      subtitle: 'Polyurethane covered rollers for industrial machines',
+      short_desc: 'Polyurethane covered rollers with high abrasion resistance — new rollers or re-coating on your existing shafts.',
+      full_desc: 'Cast polyurethane rollers bonded to steel or aluminium cores, ground to size and finish. Used where rubber wears out quickly — conveyors, printing, packaging, textile and sheet-metal lines. Worn rollers can be stripped and re-coated on the original shaft to save cost.',
+      material_grades: 'Cast Polyurethane (TDI/MDI-based)',
+      shore_hardness: '60A–95A Shore',
+      temp_rating: '-30°C to +90°C',
+      applications: 'Conveyors, Printing & Laminating, Packaging Machines, Textile Machines, Sheet Metal Feeding',
+      features: 'High abrasion & cut resistance, precision ground, re-coating of existing shafts, custom hardness & colour',
+      is_featured: false,
+      order_index: 32
+    },
+    {
+      category_code: 'P-12',
+      name: 'Rubber Rollers',
+      slug: 'rubber-rollers',
+      image_url: '/uploads/products/rubber-roller.jpg',
+      subtitle: 'Rubber covered rollers in NBR, EPDM, Silicone & Neoprene',
+      short_desc: 'Rubber covered rollers made to drawing — new rollers or re-rubbering on your existing shafts.',
+      full_desc: 'Rubber rollers bonded to steel cores and precision ground, in a compound chosen for the job: NBR for oils and inks, EPDM for weather and water, Silicone for heat and release, Neoprene for general duty. Worn rollers can be re-rubbered on the original shaft.',
+      material_grades: 'NBR, EPDM, Silicone, Neoprene, Natural Rubber',
+      shore_hardness: '40A–90A Shore',
+      temp_rating: '-20°C to +120°C',
+      applications: 'Printing & Coating, Paper & Film Lines, Textile Machines, Conveyors, Pinch & Feed Rolls',
+      features: 'Precision ground finish, re-rubbering of existing shafts, compound matched to application, custom sizes',
+      is_featured: false,
+      order_index: 33
     }
   ],
 
