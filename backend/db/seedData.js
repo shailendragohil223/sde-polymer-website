@@ -100,36 +100,6 @@ const initialData = {
       order_index: 3
     },
     {
-      category_code: 'P-07',
-      name: 'Pharma & Food Grade Silicone Gaskets',
-      slug: 'pharma-silicone-gaskets',
-      subtitle: 'Hygienic FDA compliant sanitary seals',
-      short_desc: 'Door gaskets, tri-clover gaskets, validation gaskets & NovAseptic diaphragms for critical hygienic applications.',
-      full_desc: 'Ultra-clean Platinum-cured and peroxide-cured silicone elastomer seals designed for pharmaceutical bio-reactors, cleanroom autoclaves, and food processing pipelines. Complies with FDA 21 CFR 177.2600 and USP Class VI requirements.',
-      material_grades: 'Platinum Cured Silicone, Translucent Food-Grade Silicone, USP Class VI Silicone',
-      shore_hardness: '30A–80A Shore',
-      temp_rating: '-60°C to +230°C',
-      applications: 'Pharma Cleanrooms, Autoclaves, Tri-Clamp Sanitary Unions, Food Dairy Processing, Bio-reactors',
-      features: 'Non-toxic, odourless, zero leeching, steam autoclavable, transparent/colored',
-      is_featured: true,
-      order_index: 4
-    },
-    {
-      category_code: 'P-08',
-      name: 'High Temperature Fireproof Bellows',
-      slug: 'high-temp-bellows',
-      subtitle: 'Extreme thermal furnace & exhaust expansion joints',
-      short_desc: 'Fabric & PTFE bellows for furnace-side use — fireproof and rated up to 1400°C.',
-      full_desc: 'Multilayer engineered flexible expansion joints and thermal compensation bellows fabricated with ceramic fiber, high-grade fiberglass fabric, PTFE foil barriers, and stainless steel internal wire mesh reinforcements for high velocity hot gas ducted ducts.',
-      material_grades: 'Ceramic Fabric, Fiberglass Silicone Coated, PTFE Inversion Layer, SS316 Wire Reinforcement',
-      shore_hardness: 'Custom Flexible Multi-Layer',
-      temp_rating: 'Up to +1400°C',
-      applications: 'Cement Kilns, Thermal Power Plant Flue Gas Ducts, Steel Smelting Furnaces, Turbine Exhaust',
-      features: 'Rated 1200°C–1400°C, absorbs multi-axial duct thermal expansion, acid corrosion resistance',
-      is_featured: true,
-      order_index: 5
-    },
-    {
       category_code: 'P-01',
       name: 'Custom Rubber Moulded Gaskets & Diaphragms',
       slug: 'rubber-moulded-gaskets-diaphragms',
