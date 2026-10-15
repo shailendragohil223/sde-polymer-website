@@ -550,22 +550,6 @@ const initialData = {
     },
     {
       category_code: 'P-12',
-      name: 'PU Rollers',
-      slug: 'pu-rollers',
-      image_url: '/uploads/products/pu-rollers.jpg',
-      subtitle: 'Polyurethane covered rollers for industrial machines',
-      short_desc: 'Polyurethane covered rollers with high abrasion resistance — new rollers or re-coating on your existing shafts.',
-      full_desc: 'Cast polyurethane rollers bonded to steel or aluminium cores, ground to size and finish. Used where rubber wears out quickly — conveyors, printing, packaging, textile and sheet-metal lines. Worn rollers can be stripped and re-coated on the original shaft to save cost.',
-      material_grades: 'Cast Polyurethane (TDI/MDI-based)',
-      shore_hardness: '60A–95A Shore',
-      temp_rating: '-30°C to +90°C',
-      applications: 'Conveyors, Printing & Laminating, Packaging Machines, Textile Machines, Sheet Metal Feeding',
-      features: 'High abrasion & cut resistance, precision ground, re-coating of existing shafts, custom hardness & colour',
-      is_featured: false,
-      order_index: 32
-    },
-    {
-      category_code: 'P-12',
       name: 'Rubber Rollers',
       slug: 'rubber-rollers',
       image_url: '/uploads/products/rubber-roller.jpg',
