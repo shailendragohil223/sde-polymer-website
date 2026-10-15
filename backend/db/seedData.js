@@ -423,7 +423,7 @@ const initialData = {
     },
     {
       category_code: 'P-10',
-      name: 'Heavy Duty Rubber Bush',
+      name: 'Rubber Bush',
       slug: 'heavy-duty-rubber-bush',
       image_url: '/uploads/products/rubber-bush.jpg',
       subtitle: 'Moulded rubber bushes, buffers & stoppers',
