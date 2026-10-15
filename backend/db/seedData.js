@@ -375,7 +375,7 @@ const initialData = {
     },
     {
       category_code: 'P-09',
-      name: 'Industrial Flange Gaskets',
+      name: 'Industrial Gaskets',
       slug: 'industrial-flange-gaskets',
       image_url: '/uploads/products/industrial-gaskets.jpg',
       subtitle: 'Cut, spiral-wound & non-asbestos gaskets',
