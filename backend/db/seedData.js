@@ -149,7 +149,7 @@ const initialData = {
     },
     {
       category_code: 'P-10',
-      name: 'Import Substitute Custom Rubber Moulding',
+      name: 'Customised Rubber Moulding Product',
       slug: 'import-substitute-moulding',
       image_url: '/uploads/products/rubber-moulded-parts-assortment.jpg',
       subtitle: 'Reverse engineering of legacy and overseas polymer components',
