@@ -455,22 +455,6 @@ const initialData = {
       order_index: 27
     },
     {
-      category_code: 'P-10',
-      name: 'Logo-Embossed Custom Rubber Pads',
-      slug: 'logo-embossed-rubber-pads',
-      image_url: '/uploads/products/logo-embossed-rubber-pad.jpg',
-      subtitle: 'Compression-moulded pads with embossed branding',
-      short_desc: 'Custom moulded rubber pads and blocks with embossed or debossed logo, part number or text.',
-      full_desc: 'Compression-moulded rubber pads, blocks and feet with your logo, part number or text moulded directly into the surface for permanent identification. Made to drawing in the required thickness, hardness and compound.',
-      material_grades: 'Natural Rubber, NBR, Neoprene, EPDM, Silicone',
-      shore_hardness: '50A–90A Shore',
-      temp_rating: '-30°C to +120°C',
-      applications: 'Machine Feet, Wear Pads, Anti-Slip Pads, OEM Branded Spares, Mounting Blocks',
-      features: 'Permanent moulded branding, custom size & hardness, traceable part marking',
-      is_featured: false,
-      order_index: 28
-    },
-    {
       category_code: 'P-11',
       name: 'O-Ring Service Kit (NBR-70, 386 pcs)',
       slug: 'o-ring-service-kit',
