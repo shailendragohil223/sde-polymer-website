@@ -199,7 +199,7 @@ const initialData = {
       category_code: 'P-02',
       name: 'PU Hydraulic Seals — U-Cup, Wiper & Guide Band',
       slug: 'pu-hydraulic-seals',
-      image_url: '/uploads/products/pu-hydraulic-seals.jpg',
+      image_url: '/uploads/products/hydraulic-cylinder-seals-diagram.jpg',
       subtitle: 'Machined polyurethane rod, piston & wiper seals',
       short_desc: 'Polyurethane U-cups, rod wipers, guide/wear bands and O-rings — machined to size for any hydraulic or pneumatic cylinder.',
       full_desc: 'High-performance polyurethane seals CNC-machined from tube stock, so any non-standard size can be supplied without tooling cost. Range includes single and double-lip U-cups, metal-cased and snap-in wipers, fabric/PTFE guide bands and backup rings for complete cylinder resealing.',
