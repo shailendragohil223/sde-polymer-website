@@ -15,12 +15,6 @@ const SLIDE_INTERVAL_MS = 3500;
 
 export default function Hero({ siteInfo, onOpenQuote }) {
   const settings = siteInfo?.settings || {};
-  const stats = siteInfo?.heroStats || [
-    { num: '25A–95A', lbl: 'Shore Hardness Range' },
-    { num: '1400°C', lbl: 'High-Temp Bellows Rated' },
-    { num: '10+', lbl: 'Polymer Product Lines' },
-    { num: '2 Decades', lbl: 'Trusted Manufacturing' }
-  ];
 
   const [activeSlide, setActiveSlide] = useState(0);
   const [paused, setPaused] = useState(false);
@@ -71,15 +65,6 @@ export default function Hero({ siteInfo, onOpenQuote }) {
             <a href="#products" className="btn btn-ghost">
               <FileDown size={16} /> Explore Catalog
             </a>
-          </div>
-
-          <div className="hero-strip">
-            {stats.map((stat, idx) => (
-              <div className="stat" key={idx}>
-                <div className="num">{stat.num}</div>
-                <div className="lbl">{stat.lbl}</div>
-              </div>
-            ))}
           </div>
         </div>
 

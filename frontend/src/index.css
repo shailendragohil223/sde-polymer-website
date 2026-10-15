@@ -428,40 +428,6 @@ nav.links a.active {
   display: flex;
   flex-wrap: wrap;
   gap: 14px;
-  margin-bottom: 42px;
-}
-
-.hero-strip {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
-  border-top: 1px solid var(--line);
-  padding-top: 26px;
-}
-
-.hero-strip .stat {
-  border-right: 1px solid var(--line);
-  padding-right: 14px;
-}
-
-.hero-strip .stat:last-child {
-  border-right: none;
-}
-
-.hero-strip .stat .num {
-  font-family: 'Oswald', sans-serif;
-  font-size: 28px;
-  font-weight: 700;
-  color: var(--accent-bright);
-}
-
-.hero-strip .stat .lbl {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 11px;
-  letter-spacing: 0.08em;
-  color: rgba(255, 255, 255, 0.65);
-  text-transform: uppercase;
-  margin-top: 4px;
 }
 
 /* Hero product slideshow */
@@ -1540,7 +1506,6 @@ footer {
   .header-quote-btn { display: none; }
   .hero { padding: 64px 0 56px; }
   .hero-actions .btn { flex: 1 1 100%; }
-  .hero-strip .stat:nth-child(2n) { border-right: none; }
   .hero-products { grid-template-columns: 1fr; gap: 8px; }
   .hero-slide figcaption { font-size: 18px; padding: 36px 16px 38px; }
   .hero-slideshow-logo { width: 52px; }
@@ -1551,7 +1516,6 @@ footer {
     scrollbar-width: none;
   }
   .category-filter-chips::-webkit-scrollbar { display: none; }
-  .hero-strip { grid-template-columns: repeat(2, 1fr); }
   .ind-grid { grid-template-columns: repeat(2, 1fr); }
   .why-grid { grid-template-columns: 1fr; }
   .prod-grid { grid-template-columns: 1fr; }
