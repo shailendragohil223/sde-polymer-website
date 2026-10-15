@@ -451,7 +451,7 @@ const initialData = {
       temp_rating: '-20°C to +120°C',
       applications: 'Wiping & Cleaning Stations, Conveyor Lines, Cutting Tables, Glass & Tile Handling, Packaging Machines',
       features: 'Wiping & cleaning action, non-marking grip, flexible bristles, metal backing plate option, custom pad size',
-      is_featured: false,
+      is_featured: true,
       order_index: 27
     },
     {
