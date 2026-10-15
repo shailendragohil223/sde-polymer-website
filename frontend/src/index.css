@@ -762,74 +762,6 @@ nav.links a.active {
   color: var(--white);
 }
 
-.cat-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1px;
-  background: var(--line);
-  border: 1px solid var(--line);
-}
-
-.cat-card {
-  display: block;
-  width: 100%;
-  text-align: left;
-  font: inherit;
-  color: inherit;
-  border: none;
-  background: var(--navy);
-  padding: 28px 24px;
-  transition: background 0.25s ease, transform 0.25s ease;
-  position: relative;
-  cursor: pointer;
-}
-
-.cat-card:hover {
-  background: var(--navy-mid);
-}
-
-.cat-card-cta {
-  background: var(--brand);
-}
-
-.cat-card-cta:hover {
-  background: var(--brand-hover);
-}
-
-/* When the CTA card would sit alone in the last row, stretch it across */
-.cat-grid > .cat-card-cta:nth-child(4n+1) {
-  grid-column: 1 / -1;
-}
-
-.cat-card.cat-card-cta .num {
-  color: rgba(255, 255, 255, 0.85);
-}
-
-.cat-card.cat-card-cta p {
-  color: rgba(255, 255, 255, 0.85);
-}
-
-.cat-card .num {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 11px;
-  color: var(--accent-bright);
-  letter-spacing: 0.1em;
-  font-weight: 600;
-}
-
-.cat-card h4 {
-  font-size: 17px;
-  color: var(--white);
-  margin: 12px 0 8px;
-  letter-spacing: 0.01em;
-}
-
-.cat-card p {
-  font-size: 13.5px;
-  color: rgba(255, 255, 255, 0.6);
-  line-height: 1.5;
-}
-
 /* ================= INDUSTRIES ================= */
 .ind-grid {
   display: grid;
@@ -1553,9 +1485,6 @@ footer {
   .hero-products { margin-bottom: 0; }
   .about-grid { grid-template-columns: 1fr; }
   .why-grid { grid-template-columns: repeat(2, 1fr); }
-  .cat-grid { grid-template-columns: repeat(2, 1fr); }
-  .cat-grid > .cat-card-cta:nth-child(4n+1) { grid-column: auto; }
-  .cat-grid > .cat-card-cta:nth-child(2n+1) { grid-column: 1 / -1; }
   .ind-grid { grid-template-columns: repeat(3, 1fr); }
   .prod-grid { grid-template-columns: repeat(2, 1fr); }
   .app-grid { grid-template-columns: repeat(2, 1fr); }
@@ -1622,10 +1551,6 @@ footer {
     scrollbar-width: none;
   }
   .category-filter-chips::-webkit-scrollbar { display: none; }
-  .cat-grid { grid-template-columns: repeat(2, 1fr); }
-  .cat-card { padding: 18px 16px; }
-  .cat-card h4 { font-size: 15px; }
-  .cat-card p { display: none; }
   .hero-strip { grid-template-columns: repeat(2, 1fr); }
   .ind-grid { grid-template-columns: repeat(2, 1fr); }
   .why-grid { grid-template-columns: 1fr; }

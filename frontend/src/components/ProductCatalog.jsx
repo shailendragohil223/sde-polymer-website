@@ -13,15 +13,6 @@ export default function ProductCatalog({ categories, products, onSelectProduct, 
     setVisibleCount(PAGE_SIZE);
   }, [searchTerm, selectedCatCode]);
 
-  const filteredCategories = categories.filter(cat => {
-    if (searchTerm) {
-      return cat.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-             cat.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
-             cat.code.toLowerCase().includes(searchTerm.toLowerCase());
-    }
-    return true;
-  });
-
   const filteredProducts = products.filter(prod => {
     const matchesCat = selectedCatCode === 'ALL' || prod.category_code === selectedCatCode;
     const matchesSearch = !searchTerm || 
@@ -76,40 +67,8 @@ export default function ProductCatalog({ categories, products, onSelectProduct, 
           </div>
         </div>
 
-        {/* Categories Grid */}
-        <div className="cat-grid">
-          {filteredCategories.map((cat) => (
-            <button 
-              type="button"
-              className="cat-card" 
-              key={cat.id}
-              onClick={() => {
-                setSelectedCatCode(cat.code);
-                document.getElementById('product-list')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-              }}
-            >
-              <div className="num">{cat.code}</div>
-              <h4>{cat.name}</h4>
-              <p>{cat.description}</p>
-              <div style={{ marginTop: '14px', display: 'flex', alignItems: 'center', gap: '6px', color: 'var(--accent-bright)', fontSize: '12px', fontWeight: 600 }}>
-                <span>View Products</span> <ArrowRight size={13} />
-              </div>
-            </button>
-          ))}
-          {!searchTerm && (
-            <a href="#contact" className="cat-card cat-card-cta">
-              <div className="num">Custom</div>
-              <h4>Need a custom part?</h4>
-              <p>Send your drawing or sample and get a quotation within 24 hours.</p>
-              <div style={{ marginTop: '14px', display: 'flex', alignItems: 'center', gap: '6px', color: 'var(--white)', fontSize: '12px', fontWeight: 600 }}>
-                <span>Contact Engineering</span> <ArrowRight size={13} />
-              </div>
-            </a>
-          )}
-        </div>
-
         {/* Products List */}
-        <div id="product-list" style={{ marginTop: '56px', scrollMarginTop: '90px' }}>
+        <div id="product-list" style={{ marginTop: '40px', scrollMarginTop: '90px' }}>
           <h3 style={{ fontSize: '22px', color: 'var(--white)', marginBottom: '24px' }}>
             {selectedCatCode === 'ALL'
               ? 'All Products'
