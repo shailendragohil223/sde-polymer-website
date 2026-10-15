@@ -68,7 +68,7 @@ export default function ProductCatalog({ categories, products, onSelectProduct, 
         </div>
 
         {/* Products List */}
-        <div id="product-list" style={{ marginTop: '40px', scrollMarginTop: '90px' }}>
+        <div id="product-list" style={{ marginTop: '40px', scrollMarginTop: '110px' }}>
           <h3 style={{ fontSize: '22px', color: 'var(--white)', marginBottom: '24px' }}>
             {selectedCatCode === 'ALL'
               ? 'All Products'
