@@ -1,7 +1,7 @@
 import React from 'react';
 import { 
   FlaskConical, Pill, Utensils, Building2, Hammer, 
-  FileText, Box, Layers, Scissors, Zap, Cpu, Cog 
+  FileText, Box, Layers, Shirt, Zap, Cpu, Cog 
 } from 'lucide-react';
 
 const iconMap = {
@@ -13,7 +13,7 @@ const iconMap = {
   FileText,
   Box,
   Layers,
-  Scissors,
+  Shirt,
   Zap,
   Cpu,
   Cog
@@ -29,7 +29,7 @@ export default function IndustriesSection({ industries }) {
     { name: 'Paper', icon: 'FileText' },
     { name: 'Packaging', icon: 'Box' },
     { name: 'Plastic', icon: 'Layers' },
-    { name: 'Textile', icon: 'Scissors' },
+    { name: 'Textile', icon: 'Shirt' },
     { name: 'Power', icon: 'Zap' },
     { name: 'OEM', icon: 'Cpu' },
     { name: 'Heavy Engineering', icon: 'Cog' }

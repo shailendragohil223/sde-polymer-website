@@ -15,15 +15,16 @@ const SLIDE_INTERVAL_MS = 3500;
 
 export default function Hero({ siteInfo, onOpenQuote }) {
   const settings = siteInfo?.settings || {};
-  const stats = siteInfo?.heroStats || [
-    { num: '25A–95A', lbl: 'Shore Hardness Range' },
-    { num: '1400°C', lbl: 'High-Temp Bellows Rated' },
-    { num: '10+', lbl: 'Polymer Product Lines' },
-    { num: '2 Decades', lbl: 'Trusted Manufacturing' }
-  ];
 
   const [activeSlide, setActiveSlide] = useState(0);
   const [paused, setPaused] = useState(false);
+
+  // Hovering or focusing a product line shows its photo and holds it there
+  const showLine = (idx) => {
+    setActiveSlide(idx);
+    setPaused(true);
+  };
+  const resume = () => setPaused(false);
 
   // Restarts on every slide change, so a manual pick stays up for a full interval
   useEffect(() => {
@@ -41,12 +42,15 @@ export default function Hero({ siteInfo, onOpenQuote }) {
           Precision Industrial Sealing &amp; <span>Engineering Polymer</span> Solutions
         </h1>
 
-        <ul className="hero-products">
+        <ul className="hero-products" onMouseLeave={resume}>
           {PRODUCT_LINES.map((line, idx) => (
             <li key={line.name}>
               <button
                 type="button"
                 className={idx === activeSlide ? 'active' : ''}
+                onMouseEnter={() => showLine(idx)}
+                onFocus={() => showLine(idx)}
+                onBlur={resume}
                 onClick={() => setActiveSlide(idx)}
                 aria-pressed={idx === activeSlide}
               >
@@ -72,15 +76,6 @@ export default function Hero({ siteInfo, onOpenQuote }) {
               <FileDown size={16} /> Explore Catalog
             </a>
           </div>
-
-          <div className="hero-strip">
-            {stats.map((stat, idx) => (
-              <div className="stat" key={idx}>
-                <div className="num">{stat.num}</div>
-                <div className="lbl">{stat.lbl}</div>
-              </div>
-            ))}
-          </div>
         </div>
 
         <div
@@ -90,27 +85,32 @@ export default function Hero({ siteInfo, onOpenQuote }) {
           aria-roledescription="carousel"
           aria-label="Our products"
         >
-          {PRODUCT_LINES.map((line, idx) => (
-            <figure
-              key={line.name}
-              className={`hero-slide ${idx === activeSlide ? 'active' : ''}`}
-              aria-hidden={idx !== activeSlide}
-            >
-              <img src={line.image} alt={line.name} decoding="async" />
-              <figcaption>{line.name}</figcaption>
-            </figure>
-          ))}
-          <img className="hero-slideshow-logo" src="/logo/sde-logo.svg" alt="" aria-hidden="true" />
-          <div className="hero-slide-dots">
+          <div className="hero-slide-media">
             {PRODUCT_LINES.map((line, idx) => (
-              <button
+              <img
                 key={line.name}
-                type="button"
-                className={idx === activeSlide ? 'active' : ''}
-                onClick={() => setActiveSlide(idx)}
-                aria-label={`Show ${line.name}`}
+                className={`hero-slide ${idx === activeSlide ? 'active' : ''}`}
+                src={line.image}
+                alt={line.name}
+                aria-hidden={idx !== activeSlide}
+                decoding="async"
               />
             ))}
+          </div>
+          <div className="hero-slide-bar">
+            <img className="hero-slideshow-logo" src="/logo/sde-logo.svg" alt="" aria-hidden="true" />
+            <div className="hero-slide-caption" aria-live="polite">{PRODUCT_LINES[activeSlide].name}</div>
+            <div className="hero-slide-dots">
+              {PRODUCT_LINES.map((line, idx) => (
+                <button
+                  key={line.name}
+                  type="button"
+                  className={idx === activeSlide ? 'active' : ''}
+                  onClick={() => setActiveSlide(idx)}
+                  aria-label={`Show ${line.name}`}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </div>

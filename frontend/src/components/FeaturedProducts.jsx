@@ -29,7 +29,6 @@ export default function FeaturedProducts({ products, onSelectProduct, onOpenQuot
                 <p>{prod.short_desc}</p>
                 <div className="meta">
                   {prod.shore_hardness && <span>{prod.shore_hardness}</span>}
-                  {prod.temp_rating && <span>{prod.temp_rating}</span>}
                 </div>
               </div>
 

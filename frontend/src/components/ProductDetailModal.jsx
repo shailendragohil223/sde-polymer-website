@@ -84,15 +84,9 @@ export default function ProductDetailModal({ product, onClose, onOpenQuote }) {
             </h4>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', fontSize: '13.5px' }}>
               {product.shore_hardness && (
-                <div>
+                <div style={{ gridColumn: 'span 2' }}>
                   <strong style={{ color: 'var(--steel)' }}>Shore Hardness: </strong>
                   <span style={{ color: 'var(--navy-deep)', fontWeight: 600 }}>{product.shore_hardness}</span>
-                </div>
-              )}
-              {product.temp_rating && (
-                <div>
-                  <strong style={{ color: 'var(--steel)' }}>Temperature Rating: </strong>
-                  <span style={{ color: 'var(--navy-deep)', fontWeight: 600 }}>{product.temp_rating}</span>
                 </div>
               )}
               {product.material_grades && (
