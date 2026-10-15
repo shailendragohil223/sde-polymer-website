@@ -545,7 +545,7 @@ const initialData = {
     { name: 'Paper', icon: 'FileText', description: 'Chemical-resistant rubber roll covers and water-lubricated nylon bushes.', order_index: 6 },
     { name: 'Packaging', icon: 'Box', description: 'High-speed suction cups, silicone heat-sealing strips and PU rollers.', order_index: 7 },
     { name: 'Plastic', icon: 'Layers', description: 'Extruder barrel seals, mould wiper rings, and heat-resistant gaskets.', order_index: 8 },
-    { name: 'Textile', icon: 'Scissors', description: 'Yarn guiding wear rings, anti-static PU wheels, and dyeing vessel seals.', order_index: 9 },
+    { name: 'Textile', icon: 'Shirt', description: 'Yarn guiding wear rings, anti-static PU wheels, and dyeing vessel seals.', order_index: 9 },
     { name: 'Power', icon: 'Zap', description: 'Flue gas expansion joints, turbine sealing components & insulated mats.', order_index: 10 },
     { name: 'OEM', icon: 'Cpu', description: 'Custom engineered polymer parts matched to production machinery tolerances.', order_index: 11 },
     { name: 'Heavy Engineering', icon: 'Cog', description: 'Excavator cylinder kits, high-pressure oil seals & precision polymer bushes.', order_index: 12 }
