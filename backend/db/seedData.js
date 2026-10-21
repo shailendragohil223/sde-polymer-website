@@ -11,7 +11,9 @@ const initialData = {
     { setting_key: 'primary_phone_display', setting_value: '+91 9924 314732', setting_group: 'contact' },
     { setting_key: 'secondary_phone', setting_value: '+919313860251', setting_group: 'contact' },
     { setting_key: 'secondary_phone_display', setting_value: '+91 93138 60251', setting_group: 'contact' },
-    { setting_key: 'contact_email', setting_value: 'shreedipeshwariengg@gmail.com', setting_group: 'contact' },
+    { setting_key: 'info_email', setting_value: 'info@shreedipeshwariengg.com', setting_group: 'contact' },
+    { setting_key: 'contact_email', setting_value: 'contact@shreedipeshwariengg.com', setting_group: 'contact' },
+    { setting_key: 'sales_email', setting_value: 'sales@shreedipeshwariengg.com', setting_group: 'contact' },
     { setting_key: 'working_hours', setting_value: 'Mon–Sat, 9:30 AM – 7:00 PM', setting_group: 'contact' },
     { setting_key: 'whatsapp_number', setting_value: '919924314732', setting_group: 'contact' },
     { setting_key: 'map_query', setting_value: 'Kalali Village Road, Vadodara 390012', setting_group: 'contact' }

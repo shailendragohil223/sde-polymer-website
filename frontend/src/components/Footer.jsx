@@ -1,5 +1,6 @@
 import React from 'react';
 import { MapPin, Phone, Mail, Clock } from 'lucide-react';
+import { getContactEmails } from '../utils/contactEmails';
 
 export default function Footer({ siteInfo, onOpenAdmin }) {
   const settings = siteInfo?.settings || {};
@@ -39,11 +40,11 @@ export default function Footer({ siteInfo, onOpenAdmin }) {
                 {settings.secondary_phone_display || '+91 93138 60251'}
               </a>
             </li>
-            <li>
-              📧 <a href={`mailto:${settings.contact_email || 'shreedipeshwariengg@gmail.com'}`}>
-                {settings.contact_email || 'shreedipeshwariengg@gmail.com'}
-              </a>
-            </li>
+            {getContactEmails(settings).map(({ label, address }) => (
+              <li key={address}>
+                📧 {label}: <a href={`mailto:${address}`}>{address}</a>
+              </li>
+            ))}
             <li>
               🕐 {settings.working_hours || 'Mon–Sat, 9:30 AM – 7:00 PM'}
             </li>
