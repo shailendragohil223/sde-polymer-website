@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { MapPin, Phone, Mail, Clock, Send, CheckCircle2 } from 'lucide-react';
 import { submitContactInquiry } from '../services/api';
+import { getContactEmails } from '../utils/contactEmails';
 
 export default function ContactSection({ siteInfo, onToast }) {
   const settings = siteInfo?.settings || {};
@@ -190,9 +191,13 @@ export default function ContactSection({ siteInfo, onToast }) {
               </li>
               <li>
                 <Mail size={18} />
-                <a href={`mailto:${settings.contact_email || 'shreedipeshwariengg@gmail.com'}`} style={{ color: 'var(--accent-bright)' }}>
-                  {settings.contact_email || 'shreedipeshwariengg@gmail.com'}
-                </a>
+                <div>
+                  {getContactEmails(settings).map(({ label, address }) => (
+                    <a key={address} href={`mailto:${address}`} style={{ color: 'var(--accent-bright)', display: 'block' }}>
+                      <span style={{ color: 'rgba(255,255,255,0.6)' }}>{label}: </span>{address}
+                    </a>
+                  ))}
+                </div>
               </li>
               <li>
                 <Clock size={18} />
